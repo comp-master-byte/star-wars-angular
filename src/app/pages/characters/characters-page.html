@@ -1,1 +1,10 @@
-<p>characters works!</p>
+
+@if(isCharactersLoading()) {
+  <p>Loading...</p>
+} @else {
+  <div class="flex gap-[15px] flex-wrap">
+    @for(character of charactersList(); track character.name) {
+      <app-character [character]="character"></app-character>
+    }
+  </div>
+}

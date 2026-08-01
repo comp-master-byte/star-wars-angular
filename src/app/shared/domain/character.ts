@@ -6,14 +6,14 @@ import { VehicleUrlId } from "./vehicle";
 
 export type CharacterUrlId = string;
 
-export type Character = {
+export type CharacterType = {
   name: string;
-  height: number;
-  mass: number;
-  hair_color: string;
-  skin_color: string;
-  eye_color: string;
-  birth_year: string;
+  height: string;
+  mass: string;
+  hairColor: string;
+  skinColor: string;
+  eyeColor: string;
+  birthYear: string;
   gender: 'male' | 'female';
   homeworld: PlanetUrlId;
   films: FilmUrlId[];

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { CharacterType } from '../../../../shared';
 
 @Component({
   selector: 'app-character',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './character.html',
   styleUrl: './character.css',
 })
-export class Character {}
+export class Character {
+  character = input<CharacterType>();
+}
