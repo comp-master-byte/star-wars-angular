@@ -1,0 +1,13 @@
+<nav
+  class="w-full h-[50px] bg-black text-white flex items-center justify-center gap-x-[25px]"
+>
+  @for(route of routes; track route.path) {
+    <a 
+      [routerLink]="route.path"
+      routerLinkActive="text-main"
+      [routerLinkActiveOptions]="{exact: true}"
+    >
+      {{ route.name }}
+    </a>
+  }
+</nav>
