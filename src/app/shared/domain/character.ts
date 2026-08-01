@@ -7,6 +7,7 @@ import { VehicleUrlId } from "./vehicle";
 export type CharacterUrlId = string;
 
 export type CharacterType = {
+  id: string;
   name: string;
   height: string;
   mass: string;

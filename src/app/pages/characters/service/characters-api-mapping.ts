@@ -5,7 +5,8 @@ export function characterPropertiesMapping(response: CharacterResultServer[]): R
   const result: Record<string, CharacterType> = {};
 
   for(let i = 0; i < response.length; i++) {
-    result[response[i]._id] = {
+    result[response[i].uid] = {
+      id: response[i].uid,
       name: response[i].properties.name,
       height: response[i].properties.height,
       mass: response[i].properties.mass,
