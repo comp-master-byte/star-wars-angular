@@ -12,7 +12,7 @@
 >
   <div class="relative w-full h-[260px] overflow-hidden">
     <img
-      src="https://static.wikia.nocookie.net/starwars/images/luke.jpg"
+      src="https://m.media-amazon.com/images/M/MV5BYzkxYjcxOWUtNWM5Zi00MzY3LTliYjAtNGYyNjE5OWY2MmU4XkEyXkFqcGc@._V1_.jpg"
       alt="Luke Skywalker"
       class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
     />
@@ -22,16 +22,19 @@
     <h3 class="text-white text-lg font-semibold tracking-wide">
       {{character()?.name}}
     </h3>
-    <!-- <p class="text-main text-xs uppercase tracking-widest mt-1">
-      Jedi Knight
+    <p class="text-main text-xs uppercase tracking-widest mt-1">
+      Star Wars
     </p>
-    <div class="flex gap-2 mt-3 text-neutral-400 text-xs">
+    <div class="flex flex-wrap justify-center gap-2 mt-3 text-neutral-400 text-xs">
       <span class="px-2 py-1 rounded-full bg-main/5 border border-main/20">
-        Tatooine
+        Height {{character()?.height}}
       </span>
       <span class="px-2 py-1 rounded-full bg-main/5 border border-main/20">
-        Human
+        Birth year {{character()?.birthYear}}
       </span>
-    </div> -->
+      <span class="px-2 py-1 rounded-full bg-main/5 border border-main/20">
+        Mass {{character()?.mass}}
+      </span>
+    </div>
   </div>
 </div>

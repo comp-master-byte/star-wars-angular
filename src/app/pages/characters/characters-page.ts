@@ -42,6 +42,6 @@ export class CharactersPage {
   }
 
   charactersList = computed(() => {
-    return Object.values(this.characters()) as CharacterType[]
+    return Object.values(this.characters());
   })
 }
