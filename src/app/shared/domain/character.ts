@@ -15,7 +15,7 @@ export type CharacterType = {
   skinColor: string;
   eyeColor: string;
   birthYear: string;
-  gender: 'male' | 'female';
+  gender: 'male' | 'female' | 'unknown';
   homeworld: PlanetUrlId;
   films: FilmUrlId[];
   species: SpeciesUrlId[];
@@ -24,4 +24,7 @@ export type CharacterType = {
   created: string;
   edited: string;
   url: CharacterUrlId;
+  // mock keys
+  img?: string;
+  designation?: string;
 }

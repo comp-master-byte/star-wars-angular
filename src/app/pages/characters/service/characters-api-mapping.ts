@@ -1,4 +1,5 @@
 import { CharacterType } from "../../../shared";
+import { CHARACTERS_FULL_DATA_DICT } from "./characters-full-dto";
 import { CharacterResultServer } from "./characters-server-types";
 
 export function characterPropertiesMapping(response: CharacterResultServer[]): Record<string, CharacterType> {
@@ -23,6 +24,7 @@ export function characterPropertiesMapping(response: CharacterResultServer[]): R
       created: response[i].properties.created,
       edited: response[i].properties.edited,
       url: response[i].properties.url,
+      ...CHARACTERS_FULL_DATA_DICT[response[i].uid]
     }
   }
 

@@ -11,12 +11,10 @@
   "
 >
   <div class="relative w-full h-[260px] overflow-hidden">
-    @if (character(); as character) {
-      <img
-        [src]="charactersExtraData[character.id]?.img ?? ''"
-        class="w-full h-full object-cover ..."
-      />
-    }
+    <img
+      [src]="character()?.img || '/assets/characters/placeholder.jpeg'"
+      class="w-full h-full object-cover ..."
+    />
     <div class="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-transparent"></div>
   </div>
   <div class="flex-1 w-full flex flex-col items-center justify-center px-4 py-3 text-center">
@@ -24,7 +22,7 @@
       {{character()?.name}}
     </h3>
     <p class="text-main text-xs uppercase tracking-widest mt-1">
-      Star Wars
+      {{character()?.designation}}
     </p>
     <div class="flex flex-wrap justify-center gap-2 mt-3 text-neutral-400 text-xs">
       <span class="px-2 py-1 rounded-full bg-main/5 border border-main/20">
