@@ -12,7 +12,7 @@ export class CharactersService {
     return this.http.get<CharacterServerResponse>(this.baseUrl, {
       params: {
         expanded: true,
-        limit: 20,
+        limit: 50,
         page: 1,
       }
     });

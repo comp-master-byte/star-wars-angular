@@ -10,7 +10,7 @@ export const CHARACTERS_FULL_DATA_DICT: Record<string, CharactersExtraData> = {
     designation: 'Jedi Knight',
   },
   '2': {
-    img: '/assets/characters/c-3po.jpg',
+    img: '/assets/characters/c-3po.jpeg',
     designation: 'Protocol Droid',
   },
   '3': {
@@ -43,7 +43,7 @@ export const CHARACTERS_FULL_DATA_DICT: Record<string, CharactersExtraData> = {
     designation: 'Jedi Master',
   },
   '11': {
-    img: '/assets/characters/anakin-1.jpg',
+    img: '/assets/characters/anakin.jpeg',
     designation: 'Jedi Knight',
   },
   '12': {

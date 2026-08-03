@@ -1,0 +1,42 @@
+<div
+  class="
+    group relative w-[300px] h-[420px] rounded-lg
+    bg-bg-main
+    border border-main/20
+    overflow-hidden
+    flex flex-col
+    shadow-lg shadow-black/50
+    transition-all duration-300
+    hover:border-main hover:shadow-main/10 hover:-translate-y-1
+  "
+>
+  <div class="relative w-full h-[260px] overflow-hidden">
+    <img
+      src="https://starwars-visualguide.com/assets/img/films/4.jpg"
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+    />
+    <div class="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-transparent"></div>
+
+    <span class="absolute top-3 left-3 px-2 py-1 rounded-full bg-bg-main/80 border border-main/30 text-main text-xs font-mono">
+      EPISODE {{film.episodeId}}
+    </span>
+  </div>
+
+  <div class="flex-1 w-full flex flex-col px-4 py-3">
+    <h3 class="text-white text-lg font-semibold tracking-wide">
+      {{film.title}}
+    </h3>
+    <p class="text-main text-xs uppercase tracking-widest mt-1">
+      {{film.releaseDate}}
+    </p>
+
+    <p class="text-neutral-400 text-xs mt-3 line-clamp-3 leading-relaxed">
+      {{film.openingCrawl}}
+    </p>
+
+    <div class="mt-auto pt-3 text-neutral-500 text-xs">
+      <p>Director: {{film.director}}</p>
+      <p>Producer: {{film.producer}}</p>
+    </div>
+  </div>
+</div>

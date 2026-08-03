@@ -6,3 +6,8 @@
   --color-main: #FFE81F;
   --color-bg-main: #0D0D0D;
 }
+
+body {
+  background-color: rgba(13, 13, 13, 0.9);
+  color: #fff;
+}
