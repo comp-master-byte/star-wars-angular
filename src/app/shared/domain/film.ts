@@ -21,4 +21,6 @@ export type FilmType = {
   created: string;
   edited: string;
   url: FilmUrlId;
+  // mock keys
+  img?: string;
 }
