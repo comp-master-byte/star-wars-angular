@@ -1,1 +1,12 @@
-<p>planets works!</p>
+@if (planetsService.isLoading()) {
+  <div class="flex items-center justify-center flex-col relative">
+    <img class="w-[300px] animate-float-spin" src="star-wars-logo.png" alt="Loading">
+    <p class="absolute bottom-[20px]">Loading...</p>
+  </div>
+} @else {
+  <div class="flex gap-[15px] flex-wrap items-start">
+    @for (planet of planetsService.planetsList(); track planet.name) {
+      <app-planet-card [planet]="planet"></app-planet-card>
+    }
+  </div>
+}

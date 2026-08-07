@@ -12,8 +12,8 @@ export class Navigation {
     {path: '/', name: 'Персонажи'},
     {path: '/films', name: 'Фильмы'},
     {path: '/planets', name: 'Планеты'},
-    {path: '/species', name: 'Биологический вид'},
-    {path: '/starships', name: 'Зведные корабли'},
-    {path: '/vehicles', name: 'Транспортные средства'},
+    // {path: '/species', name: 'Биологический вид'},
+    // {path: '/starships', name: 'Зведные корабли'},
+    // {path: '/vehicles', name: 'Транспортные средства'},
   ]
 }
