@@ -1,0 +1,129 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+.empty-search {
+  position: relative;
+  display: flex;
+  min-height: 340px;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 232, 31, 0.22);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 232, 31, 0.12), transparent 34%),
+    linear-gradient(180deg, rgba(12, 12, 12, 0.86), rgba(4, 4, 4, 0.92));
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 20px 48px rgba(0, 0, 0, 0.45);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.empty-search::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(90deg, transparent, rgba(255, 232, 31, 0.16), transparent),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.035) 0,
+      rgba(255, 255, 255, 0.035) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+  opacity: 0.34;
+}
+
+.empty-search__orbit {
+  position: relative;
+  width: 108px;
+  height: 108px;
+  margin-bottom: 24px;
+}
+
+.empty-search__planet {
+  position: absolute;
+  inset: 26px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 32% 28%, #fff7a8 0%, #FFE81F 16%, #8a6d00 48%, #151000 100%);
+  box-shadow:
+    inset -10px -12px 24px rgba(0, 0, 0, 0.5),
+    0 0 28px rgba(255, 232, 31, 0.28);
+}
+
+.empty-search__ring {
+  position: absolute;
+  inset: 17px 4px;
+  border: 2px solid rgba(255, 232, 31, 0.4);
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(255, 232, 31, 0.18);
+  transform: rotate(-18deg);
+}
+
+.empty-search__dot {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.9);
+  transform-origin: 0 36px;
+  animation: empty-search-orbit 3.4s linear infinite;
+}
+
+.empty-search__content {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+}
+
+.empty-search__eyebrow {
+  color: #FFE81F;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.empty-search__title {
+  margin-top: 8px;
+  color: #fff;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.empty-search__query {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 14px;
+}
+
+.empty-search__query span {
+  color: #FFE81F;
+}
+
+.empty-search__description {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+@keyframes empty-search-orbit {
+  from {
+    transform: rotate(0deg) translateX(-50%);
+  }
+  to {
+    transform: rotate(360deg) translateX(-50%);
+  }
+}

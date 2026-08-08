@@ -1,0 +1,22 @@
+<div class="empty-search">
+  <div class="empty-search__orbit" aria-hidden="true">
+    <div class="empty-search__planet"></div>
+    <div class="empty-search__ring"></div>
+    <div class="empty-search__dot"></div>
+  </div>
+
+  <div class="empty-search__content">
+    <p class="empty-search__eyebrow">Search archives</p>
+    <h2 class="empty-search__title">{{ title() }}</h2>
+
+    @if (query()) {
+      <p class="empty-search__query">
+        No records for <span>"{{ query() }}"</span>
+      </p>
+    }
+
+    <p class="empty-search__description">
+      {{ description() }}
+    </p>
+  </div>
+</div>
