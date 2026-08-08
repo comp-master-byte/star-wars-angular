@@ -1,9 +1,6 @@
 
 @if(charactersService.isLoading()) {
-  <div class="flex items-center justify-center flex-col relative">
-    <img class="w-[300px] animate-float-spin" src="star-wars-logo.png">
-    <p class="absolute bottom-[20px]">Loading...</p>
-  </div>
+  <app-loader></app-loader>
 } @else {
   <div class="flex gap-[15px] flex-wrap">
     @for(character of charactersService.charactersList(); track character.name) {

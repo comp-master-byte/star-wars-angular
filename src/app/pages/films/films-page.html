@@ -1,5 +1,9 @@
-<div class="flex gap-[15px] flex-wrap">
-  @for (film of filmsService.filmsList(); track film.episodeId) {
-    <app-film-card [film]="film"></app-film-card>
-  }
-</div>
+@if(filmsService.isLoading()) {
+  <app-loader></app-loader>
+} @else {
+  <div class="flex gap-[15px] flex-wrap">
+    @for (film of filmsService.filmsList(); track film.episodeId) {
+      <app-film-card [film]="film"></app-film-card>
+    }
+  </div>
+}
