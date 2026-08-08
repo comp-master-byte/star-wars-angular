@@ -1,39 +1,57 @@
 <div
   class="
-    group relative w-[300px] h-[400px] rounded-lg
-    bg-bg-main
+    character-card group relative w-[300px] h-[430px] rounded-xl
+    bg-bg-main/95
     border border-main/20
     overflow-hidden
-    flex flex-col items-center
-    shadow-lg shadow-black/50
+    flex flex-col
+    shadow-xl shadow-black/60
     transition-all duration-300
-    hover:border-main hover:shadow-main/10 hover:-translate-y-1
+    hover:border-main/80 hover:shadow-main/20 hover:-translate-y-1
   "
 >
-  <div class="relative w-full h-[260px] overflow-hidden">
+  <div class="relative w-full h-[275px] overflow-hidden bg-black">
     <img
       [src]="character()?.img || '/assets/characters/placeholder.jpeg'"
-      class="w-full h-full object-cover ..."
+      [alt]="character()?.name"
+      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
     />
-    <div class="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-transparent"></div>
+
+    <div class="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/20 to-transparent"></div>
+    <div class="absolute inset-0 character-card__scanline"></div>
+
+    <span class="absolute top-3 left-3 px-2 py-1 rounded-full bg-bg-main/80 border border-main/30 text-main text-[11px] uppercase tracking-[0.18em]">
+      {{ character()?.gender || 'unknown' }}
+    </span>
   </div>
-  <div class="flex-1 w-full flex flex-col items-center justify-center px-4 py-3 text-center">
-    <h3 class="text-white text-lg font-semibold tracking-wide">
+
+  <div class="flex-1 w-full flex flex-col px-4 py-4 text-center">
+    <h3 class="text-white text-xl font-semibold tracking-wide truncate">
       {{character()?.name}}
     </h3>
-    <p class="text-main text-xs uppercase tracking-widest mt-1">
-      {{character()?.designation}}
+
+    <p class="text-main text-[11px] uppercase tracking-[0.22em] mt-1 truncate">
+      {{character()?.designation || 'Galactic citizen'}}
     </p>
-    <div class="flex flex-wrap justify-center gap-2 mt-3 text-neutral-400 text-xs">
-      <span class="px-2 py-1 rounded-full bg-main/5 border border-main/20">
-        Height {{character()?.height}}
+
+    <div class="grid grid-cols-3 gap-2 mt-4 text-neutral-400 text-xs">
+      <span class="character-stat">
+        <span class="character-stat__label">Height</span>
+        <span class="character-stat__value">{{character()?.height}}</span>
       </span>
-      <span class="px-2 py-1 rounded-full bg-main/5 border border-main/20">
-        Birth year {{character()?.birthYear}}
+      <span class="character-stat">
+        <span class="character-stat__label">Birth</span>
+        <span class="character-stat__value">{{character()?.birthYear}}</span>
       </span>
-      <span class="px-2 py-1 rounded-full bg-main/5 border border-main/20">
-        Mass {{character()?.mass}}
+      <span class="character-stat">
+        <span class="character-stat__label">Mass</span>
+        <span class="character-stat__value">{{character()?.mass}}</span>
       </span>
+    </div>
+
+    <div class="mt-auto pt-3 flex items-center justify-center gap-2 text-[11px] uppercase tracking-[0.2em] text-neutral-500 border-t border-main/10">
+      <span class="w-1.5 h-1.5 rounded-full bg-main shadow-[0_0_10px_rgba(255,232,31,0.9)]"></span>
+      Archives record
     </div>
   </div>
 </div>

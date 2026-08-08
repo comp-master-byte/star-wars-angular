@@ -3,17 +3,20 @@ import { FilmCard } from './components/film-card/film-card';
 import { FilmsService } from './services/films-service';
 import { Loader } from '../../shared/components/loader/loader';
 import { FormsModule } from '@angular/forms';
-import { FilmsPipe } from './films-pipe';
+import { Input } from '../../shared/ui/input/input';
+import { FilterListPipe } from '../../shared/pipes/filter-list-pipe';
+import { FilmType } from '../../shared/domain/film';
 
 @Component({
   selector: 'app-films-page',
-  imports: [FilmCard, Loader, FormsModule, FilmsPipe],
+  imports: [FilmCard, Loader, FormsModule, FilterListPipe, Input],
   templateUrl: './films-page.html',
   styleUrl: './films-page.css',
 })
 export class FilmsPage implements OnInit {
   public filmsService = inject(FilmsService);
-  public searchFilmField = '';
+  public query = '';
+  public searchQuery: (keyof FilmType)[] = ['title', 'openingCrawl', 'releaseDate', 'producer', 'director'];
 
   ngOnInit(): void {
     this.filmsService.getAll();

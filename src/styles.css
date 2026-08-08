@@ -26,11 +26,12 @@ body::before {
   z-index: -1;
   pointer-events: none;
   background-image:
-    radial-gradient(#ffffff 1px, transparent 1px),
-    radial-gradient(#FFE81F 1px, transparent 1px);
-  background-size: 80px 80px, 140px 140px;
-  background-position: 0 0, 40px 60px;
-  opacity: 0.18;
+    radial-gradient(rgba(255, 255, 255, 0.95) 1px, transparent 1.5px),
+    radial-gradient(rgba(255, 232, 31, 0.85) 1px, transparent 1.5px),
+    radial-gradient(rgba(147, 197, 253, 0.75) 1px, transparent 1.5px);
+  background-size: 70px 70px, 120px 120px, 180px 180px;
+  background-position: 0 0, 40px 60px, 90px 20px;
+  opacity: 0.32;
   animation: stars-move 40s linear infinite;
 }
 
@@ -52,9 +53,9 @@ body::after {
 
 @keyframes stars-move {
   from {
-    background-position: 0 0, 40px 60px;
+    background-position: 0 0, 40px 60px, 90px 20px;
   }
   to {
-    background-position: 300px 600px, 340px 660px;
+    background-position: 300px 600px, 340px 660px, 390px 620px;
   }
 }
