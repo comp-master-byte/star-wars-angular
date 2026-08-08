@@ -1,23 +1,24 @@
-<div class="sticky top-0 z-1 w-full flex justify-center">
+<div class="sticky top-0 z-50 w-full flex justify-center px-4">
   <nav
     class="
-      w-full container h-[50px] 
-      bg-black text-white 
-      flex items-center justify-center 
+      navigation-panel
+      w-full container h-[56px]
+      text-white
+      flex items-center justify-center
       gap-x-[25px] text-[14px]
       mt-[25px]
-      rounded-[12px]
       relative
     "
   >
     <img 
       src="/icons/lord-vader.svg" 
-      class="w-[30px] absolute left-[20px]"
+      class="navigation-icon w-[30px] absolute left-[20px]"
     >
     @for(route of routes; track route.path) {
       <a 
         [routerLink]="route.path"
-        routerLinkActive="text-main"
+        class="navigation-link"
+        routerLinkActive="navigation-link_active"
         [routerLinkActiveOptions]="{exact: true}"
       >
         {{ route.name }}

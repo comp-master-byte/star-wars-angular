@@ -1,4 +1,5 @@
 import { PlanetsDict } from "../../../shared/domain/planet";
+import { PLANETS_FULL_DATA_DICT } from "./planets-full-dto";
 import { PlanetServerType } from "./planets-server-types";
 
 function parseSwapiNumber(value: string | number | null | undefined): number | null {
@@ -30,7 +31,7 @@ export function planetsResponseMapping(response: PlanetServerType): PlanetsDict 
       created: properties.created,
       edited: properties.edited,
       url: properties.url,
-      img: '/assets/planets/placeholder.jpeg'
+      ...PLANETS_FULL_DATA_DICT[properties.name],
     };
   }
 
