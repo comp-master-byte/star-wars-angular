@@ -1,5 +1,5 @@
 <div class="flex gap-[15px] flex-wrap">
-  @for (film of filmsList(); track film.episodeId) {
+  @for (film of filmsService.filmsList(); track film.episodeId) {
     <app-film-card [film]="film"></app-film-card>
   }
 </div>

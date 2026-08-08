@@ -1,9 +1,9 @@
-import { CharacterType } from "../../../shared";
+import { CharacterDict, CharacterType } from "../../../shared";
 import { CHARACTERS_FULL_DATA_DICT } from "./characters-full-dto";
 import { CharacterResultServer } from "./characters-server-types";
 
 export function characterPropertiesMapping(response: CharacterResultServer[]): Record<string, CharacterType> {
-  const result: Record<string, CharacterType> = {};
+  const result: CharacterDict = {};
 
   for(let i = 0; i < response.length; i++) {
     result[response[i].uid] = {

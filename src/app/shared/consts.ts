@@ -1,0 +1,1 @@
+export const API_CORE = 'https://www.swapi.tech/api';

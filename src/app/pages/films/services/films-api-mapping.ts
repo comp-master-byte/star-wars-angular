@@ -2,26 +2,27 @@ import { FilmType } from "../../../shared/domain/film";
 import { FILMS_FULL_DATA_DICT } from "./films-full-dto";
 import { FilmsServerResponse } from "./films-server-types";
 
-export function filmsResponseMapping(response: FilmsServerResponse[]): Record<string, FilmType> {
+export function filmsResponseMapping(response: FilmsServerResponse): Record<string, FilmType> {
   const result: Record<string, FilmType> = {};
 
-  for (let i = 0; i < response.length; i++) {
-    result[response[i].episode_id] = {
-      title: response[i].title,
-      episodeId: response[i].episode_id,
-      openingCrawl: response[i].opening_crawl,
-      director: response[i].director,
-      producer: response[i].producer,
-      releaseDate: response[i].release_date,
-      characters: response[i].characters,
-      planets: response[i].planets,
-      starships: response[i].starships,
-      vehicles: response[i].vehicles,
-      species: response[i].species,
-      created: response[i].created,
-      edited: response[i].edited,
-      url: response[i].url,
-      ...FILMS_FULL_DATA_DICT[response[i].episode_id],
+  for (let i = 0; i < response.result.length; i++) {
+    const property = response.result[i].properties;
+    result[property.episode_id] = {
+      title: property.title,
+      episodeId: property.episode_id,
+      openingCrawl: property.opening_crawl,
+      director: property.director,
+      producer: property.producer,
+      releaseDate: property.release_date,
+      characters: property.characters,
+      planets: property.planets,
+      starships: property.starships,
+      vehicles: property.vehicles,
+      species: property.species,
+      created: property.created,
+      edited: property.edited,
+      url: property.url,
+      ...FILMS_FULL_DATA_DICT[property.episode_id],
     };
   }
 

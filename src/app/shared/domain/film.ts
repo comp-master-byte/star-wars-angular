@@ -5,7 +5,7 @@ import { StarshipUrlId } from "./starship";
 import { VehicleUrlId } from "./vehicle";
 
 export type FilmUrlId = string;
-
+export type FilmDict = Record<string, FilmType>;
 export type FilmType = {
   title: string;
   episodeId: string;
@@ -21,6 +21,5 @@ export type FilmType = {
   created: string;
   edited: string;
   url: FilmUrlId;
-  // mock keys
   img?: string;
 }

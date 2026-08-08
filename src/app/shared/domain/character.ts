@@ -5,7 +5,7 @@ import { StarshipUrlId } from "./starship";
 import { VehicleUrlId } from "./vehicle";
 
 export type CharacterUrlId = string;
-
+export type CharacterDict = Record<string, CharacterType>;
 export type CharacterType = {
   id: string;
   name: string;
