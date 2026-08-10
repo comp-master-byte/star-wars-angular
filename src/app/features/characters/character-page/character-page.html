@@ -1,1 +1,107 @@
-<h1>{{characterDetailsService.selectedCharacter()?.name}}</h1>
+@if (characterDetailsService.isCharacterLoading()) {
+  <app-loader></app-loader>
+} @else if (characterDetailsService.selectedCharacter(); as character) {
+  <article class="character-page">
+    <a class="character-page__back-link" routerLink="/">
+      Обратно к персонажам
+    </a>
+
+    <section class="character-page__hero">
+      <div class="character-page__media">
+        <div class="character-page__image-frame">
+          <img
+            class="character-page__image"
+            [src]="character.img || '/assets/characters/placeholder.jpeg'"
+            [alt]="character.name"
+          />
+          <div class="character-page__image-overlay"></div>
+        </div>
+
+        <div class="character-page__signal" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="character-page__info">
+        <p class="character-page__eyebrow">Imperial archive record</p>
+
+        <div class="character-page__header">
+          <div>
+            <h1 class="character-page__title">{{ character.name }}</h1>
+            <p class="character-page__designation">
+              {{ character.designation || 'Galactic citizen' }}
+            </p>
+          </div>
+
+          <span class="character-page__id">ID {{ character.id }}</span>
+        </div>
+
+        <p class="character-page__summary">
+          Profile data collected from the galactic archive. Biological markers,
+          affiliations and travel records are listed below.
+        </p>
+
+        <div class="character-page__stats">
+          <div class="character-page__stat">
+            <span class="character-page__stat-label">Height</span>
+            <strong class="character-page__stat-value">{{ character.height }}</strong>
+          </div>
+          <div class="character-page__stat">
+            <span class="character-page__stat-label">Mass</span>
+            <strong class="character-page__stat-value">{{ character.mass }}</strong>
+          </div>
+          <div class="character-page__stat">
+            <span class="character-page__stat-label">Birth year</span>
+            <strong class="character-page__stat-value">{{ character.birthYear }}</strong>
+          </div>
+          <div class="character-page__stat">
+            <span class="character-page__stat-label">Gender</span>
+            <strong class="character-page__stat-value">{{ character.gender }}</strong>
+          </div>
+        </div>
+
+        <div class="character-page__details">
+          <div class="character-page__detail">
+            <span>Hair color</span>
+            <strong>{{ character.hairColor }}</strong>
+          </div>
+          <div class="character-page__detail">
+            <span>Skin color</span>
+            <strong>{{ character.skinColor }}</strong>
+          </div>
+          <div class="character-page__detail">
+            <span>Eye color</span>
+            <strong>{{ character.eyeColor }}</strong>
+          </div>
+          <div class="character-page__detail">
+            <span>Films</span>
+            <strong>{{ character.films.length }}</strong>
+          </div>
+          <div class="character-page__detail">
+            <span>Starships</span>
+            <strong>{{ character.starships.length }}</strong>
+          </div>
+          <div class="character-page__detail">
+            <span>Vehicles</span>
+            <strong>{{ character.vehicles.length }}</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+} @else {
+  <section class="character-page character-page--empty">
+    <div class="character-page__empty-card">
+      <p class="character-page__eyebrow">Archive unavailable</p>
+      <h1 class="character-page__title">Character not found</h1>
+      <p class="character-page__summary">
+        The requested record is missing from the galactic archive.
+      </p>
+      <a class="character-page__back-link character-page__back-link--inline" routerLink="/">
+        Back to archives
+      </a>
+    </div>
+  </section>
+}
