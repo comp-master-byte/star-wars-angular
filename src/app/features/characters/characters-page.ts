@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { CharactersService } from './service/characters.service';
-import { Character } from './components/character/character';
 import { Loader } from '../../shared/components/loader/loader';
 import { FilterListPipe } from '../../shared/pipes/filter-list-pipe';
 import { Input } from '../../shared/ui/input/input';
 import { CharacterType } from '../../shared';
+import { CharacterListItem } from './components/character-list-item/character-list-item';
 
 @Component({
   selector: 'app-characters-page',
-  imports: [Input, Character, Loader, FilterListPipe],
+  imports: [Input, CharacterListItem, Loader, FilterListPipe],
   templateUrl: './characters-page.html',
   styleUrl: './characters-page.css',
 })

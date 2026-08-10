@@ -2,11 +2,11 @@ import { Component, input } from '@angular/core';
 import { CharacterType } from '../../../../shared';
 
 @Component({
-  selector: 'app-character',
+  selector: 'app-character-list-item',
   imports: [],
-  templateUrl: './character.html',
-  styleUrl: './character.css',
+  templateUrl: './character-list-item.html',
+  styleUrl: './character-list-item.css',
 })
-export class Character {
+export class CharacterListItem {
   character = input<CharacterType>();
 }

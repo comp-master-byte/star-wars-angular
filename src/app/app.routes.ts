@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { FilmsPage } from './pages/films/films-page';
-import { Planets } from './pages/planets/planets';
-import { Species } from './pages/species/species';
-import { Vehicles } from './pages/vehicles/vehicles';
-import { Starships } from './pages/starships/starships';
-import { CharactersPage } from './pages/characters/characters-page';
+import { FilmsPage } from './features/films/films-page';
+import { Planets } from './features/planets/planets';
+import { Species } from './features/species/species';
+import { Vehicles } from './features/vehicles/vehicles';
+import { Starships } from './features/starships/starships';
+import { CharactersPage } from './features/characters/characters-page';
 
 export const routes: Routes = [
   {path: '', component: CharactersPage},
