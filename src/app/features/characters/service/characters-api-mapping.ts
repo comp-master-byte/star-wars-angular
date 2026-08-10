@@ -1,6 +1,6 @@
 import { CharacterDict, CharacterType } from "../../../shared";
 import { CHARACTERS_FULL_DATA_DICT } from "./characters-full-dto";
-import { CharacterResultServer } from "./characters-server-types";
+import { CharacterResultServer, CharacterSingleServerResponse } from "./characters-server-types";
 
 export function characterPropertiesMapping(response: CharacterResultServer[]): Record<string, CharacterType> {
   const result: CharacterDict = {};
@@ -29,4 +29,29 @@ export function characterPropertiesMapping(response: CharacterResultServer[]): R
   }
 
   return result;
+}
+
+export function characterSinglePropertyMapping(response: CharacterSingleServerResponse): CharacterType {
+  const property = response.result.properties;
+
+  return {
+    id: response.result.uid,
+    name: property.name,
+    height: property.height,
+    mass: property.mass,
+    hairColor: property.hair_color,
+    skinColor: property.skin_color,
+    eyeColor: property.eye_color,
+    birthYear: property.birth_year,
+    gender: property.gender,
+    homeworld: property.homeworld,
+    films: property.films || [],
+    species: property.species || [],
+    vehicles: property.vehicles || [],
+    starships: property.starships || [],
+    created: property.created,
+    edited: property.edited,
+    url: property.url,
+    ...CHARACTERS_FULL_DATA_DICT[response.result.uid],
+  };
 }

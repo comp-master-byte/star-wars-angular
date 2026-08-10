@@ -1,17 +1,18 @@
 import { HttpClient } from "@angular/common/http";
 import { computed, inject, Injectable, signal } from "@angular/core";
-import { Observable } from "rxjs";
 import { CharacterServerResponse } from "./characters-server-types";
 import { CharacterDict } from "../../../shared";
 import { characterPropertiesMapping } from "./characters-api-mapping";
+import { API_CORE } from "../../../shared/consts";
+import { CharacterDetailsService } from "./character-details.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharactersService {
   private http = inject(HttpClient);
-  private readonly baseUrl = 'https://www.swapi.tech/api/people'
-  public charachets = signal<CharacterDict>({});
+  private characterDetailsService = inject(CharacterDetailsService);
+  public characters = signal<CharacterDict>({});
   public isLoading = signal<boolean>(false);
   public totalPages = signal<number>(0);
   public totalCharacters = signal<number>(0);
@@ -22,7 +23,7 @@ export class CharactersService {
     }
 
     this.isLoading.set(true);
-    this.http.get<CharacterServerResponse>(this.baseUrl, {
+    this.http.get<CharacterServerResponse>(`${API_CORE}/people`, {
       params: {
         expanded: true,
         limit: 50,
@@ -30,18 +31,15 @@ export class CharactersService {
       }
     }).subscribe((response) => {
       const mappedResponse = characterPropertiesMapping(response.results);
-      this.charachets.set(mappedResponse);
+      this.characters.set(mappedResponse);
+      this.characterDetailsService.cachedCharacters.set(mappedResponse);
       this.totalCharacters.set(response.total_records);
       this.totalPages.set(response.total_pages);
       this.isLoading.set(false);
     })
   }
 
-  getById(id: number): Observable<CharacterServerResponse> {
-    return this.http.get<CharacterServerResponse>(`${this.baseUrl}/${id}`)
-  }
-
   charactersList = computed(() => {
-    return Object.values(this.charachets());
+    return Object.values(this.characters());
   })
 }

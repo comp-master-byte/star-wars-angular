@@ -32,3 +32,7 @@ export type CharacterServerResponse = {
   total_pages: number;
   results: CharacterResultServer[];
 }
+
+export type CharacterSingleServerResponse = {
+  result: CharacterResultServer;
+}
