@@ -1,5 +1,5 @@
 import { CharacterDict, CharacterType } from "../../../shared";
-import { CHARACTERS_FULL_DATA_DICT } from "./characters-full-dto";
+import { CHARACTERS_FULL_DATA_DICT } from "./characters-server-data";
 import { CharacterResultServer, CharacterSingleServerResponse } from "./characters-server-types";
 
 export function characterPropertiesMapping(response: CharacterResultServer[]): Record<string, CharacterType> {

@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FilmCard } from './components/film-card/film-card';
-import { FilmsService } from './services/films-service';
+import { FilmsService } from './services/films.service';
 import { Loader } from '../../shared/components/loader/loader';
 import { FormsModule } from '@angular/forms';
 import { Input } from '../../shared/ui/input/input';

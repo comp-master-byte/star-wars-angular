@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { PlanetsService } from './services/planets-service';
+import { PlanetsService } from './services/planets.service';
 import { PlanetCard } from './components/planet-card/planet-card';
 import { Loader } from '../../shared/components/loader/loader';
 import { PlanetType } from '../../shared/domain/planet';

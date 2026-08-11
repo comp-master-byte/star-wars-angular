@@ -2,25 +2,37 @@ import { CharacterUrlId } from "../../../shared";
 import { FilmUrlId } from "../../../shared/domain/film";
 import { PlanetUrlId } from "../../../shared/domain/planet";
 
-type SwapiNumericField = string | number | null | undefined;
+type SwapiNumericField = string;
+
+export type PlanetServerProperty = {
+  name: string;
+  rotation_period: SwapiNumericField;
+  orbital_period: SwapiNumericField;
+  diameter: SwapiNumericField;
+  climate: string;
+  gravity: string;
+  terrain: string;
+  surface_water: SwapiNumericField;
+  population: SwapiNumericField;
+  residents: CharacterUrlId[];
+  films: FilmUrlId[];
+  created: string;
+  edited: string;
+  url: PlanetUrlId;
+}
+
+export type PlanetServerResult = {
+  _id: string;
+  uid: string;
+  description: string;
+  properties: PlanetServerProperty;
+}
 
 export type PlanetServerType = {
-  results: {
-    properties: {
-      name: string;
-      rotation_period: SwapiNumericField;
-      orbital_period: SwapiNumericField;
-      diameter: SwapiNumericField;
-      climate: string;
-      gravity: string;
-      terrain: string;
-      surface_water: SwapiNumericField;
-      population: SwapiNumericField;
-      residents: CharacterUrlId[];
-      films: FilmUrlId[];
-      created: string;
-      edited: string;
-      url: PlanetUrlId;
-    }
-  }[]
+  next: string;
+  message: string;
+  apiVersion: string;
+  total_pages: number;
+  total_records: number;
+  results: PlanetServerResult[];
 }

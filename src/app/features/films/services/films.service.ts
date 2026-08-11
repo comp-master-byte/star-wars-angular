@@ -4,13 +4,16 @@ import { FilmsServerResponse } from './films-server-types';
 import { API_CORE } from '../../../shared/consts';
 import { FilmDict } from '../../../shared/domain/film';
 import { filmsResponseMapping } from './films-api-mapping';
+import { finalize } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({ 
+  providedIn: 'root' 
+})
 export class FilmsService {
-  http: HttpClient = inject(HttpClient);
-  films = signal<FilmDict>({});
-  isLoading = signal<boolean>(false);
-  error = signal('')
+  private http: HttpClient = inject(HttpClient);
+  public films = signal<FilmDict>({});
+  public isLoading = signal<boolean>(false);
+  public error = signal('');
 
   getAll() {
     if(this.filmsList().length > 0) {
@@ -24,15 +27,15 @@ export class FilmsService {
       params: {
         expanded: true,
       }
-    }).subscribe({
+    })
+    .pipe(finalize(() => this.isLoading.set(false)))
+    .subscribe({
       next: (response) => {
         const mappedResponse = filmsResponseMapping(response);
         this.films.set(mappedResponse);
-        this.isLoading.set(false); 
       },
       error: () => {
         this.error.set('Произошла ошибка при загрузке данных');
-        this.isLoading.set(false);
       }
     })
   }

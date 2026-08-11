@@ -1,5 +1,5 @@
 import { FilmType } from "../../../shared/domain/film";
-import { FILMS_FULL_DATA_DICT } from "./films-full-dto";
+import { FILMS_FULL_DATA_DICT } from "./films-server-data";
 import { FilmsServerResponse } from "./films-server-types";
 
 export function filmsResponseMapping(response: FilmsServerResponse): Record<string, FilmType> {

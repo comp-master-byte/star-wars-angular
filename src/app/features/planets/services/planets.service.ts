@@ -4,15 +4,18 @@ import { PlanetsDict } from '../../../shared/domain/planet';
 import { PlanetServerType } from './planets-server-types';
 import { planetsResponseMapping } from './planets-api-mapping';
 import { API_CORE } from '../../../shared/consts';
+import { finalize } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanetsService {
   private http = inject(HttpClient);
-  isLoading = signal<boolean>(false);
-  planets = signal<PlanetsDict>({});
-  error = signal('')
+  public planets = signal<PlanetsDict>({});
+  public isLoading = signal(false);
+  public error = signal('');
+  public totalPages = signal(0);
+  public totalPlanets = signal(0);
 
   getAll() {
     if (this.planetsList().length > 0 || this.isLoading()) {
@@ -20,6 +23,7 @@ export class PlanetsService {
     }
     
     this.isLoading.set(true);
+    this.error.set('');
 
     this.http.get<PlanetServerType>(`${API_CORE}/planets`, {
       params: {
@@ -27,14 +31,16 @@ export class PlanetsService {
         limit: 50,
         page: 1,
       }
-    }).subscribe({
+    })
+    .pipe(finalize(() => this.isLoading.set(false)))
+    .subscribe({
       next: (response) => {
         const mappedResponse = planetsResponseMapping(response);
         this.planets.set(mappedResponse);
-        this.isLoading.set(false);
+        this.totalPages.set(response.total_pages);
+        this.totalPlanets.set(response.total_records);
       },
       error: () => {
-        this.isLoading.set(false);
         this.error.set('Произошла ошибка при загрузке данных');
       },
     })
