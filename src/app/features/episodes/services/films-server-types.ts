@@ -35,3 +35,7 @@ export type FilmsServerResponse = {
   apiVersion: string;
   result: FilmsServerResult[];
 }
+
+export type EpisodeSingleServerResponse = {
+  result: FilmsServerResult;
+}

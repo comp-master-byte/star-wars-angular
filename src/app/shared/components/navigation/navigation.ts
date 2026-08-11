@@ -10,7 +10,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 export class Navigation {
   routes = [
     {path: '/', name: 'Персонажи'},
-    {path: '/films', name: 'Фильмы'},
+    {path: '/episodes', name: 'Фильмы'},
     {path: '/planets', name: 'Планеты'},
     {path: '/species', name: 'Биологический вид'},
     {path: '/starships', name: 'Зведные корабли'},

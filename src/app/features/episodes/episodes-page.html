@@ -7,7 +7,7 @@
     <app-input [(model)]="query" placeholder="Поиск фильмов..." />
     <div class="flex gap-[15px] flex-wrap">
       @for (film of filmsService.filmsList() | filterList: query : searchQuery; track film.episodeId) {
-        <app-film-card [film]="film"></app-film-card>
+        <app-episode-list-item [film]="film"></app-episode-list-item>
       } @empty {
         <app-empty-search></app-empty-search>
       }

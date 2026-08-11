@@ -4,15 +4,17 @@ import { HttpClient } from '@angular/common/http';
 import { API_CORE } from '../../../shared/consts';
 import { characterSinglePropertyMapping } from './characters-api-mapping';
 import { CharacterSingleServerResponse } from './characters-server-types';
+import { finalize } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterDetailsService {
   private http = inject(HttpClient);
-  isCharacterLoading = signal(false);
-  selectedCharacter = signal<CharacterType|null>(null);
-  cachedCharacters = signal<CharacterDict>({});
+  public error = signal('');
+  public isCharacterLoading = signal(false);
+  public selectedCharacter = signal<CharacterType|null>(null);
+  public cachedCharacters = signal<CharacterDict>({});
 
   getCharacterById(id: string): CharacterType | void {
     if(this.cachedCharacters()[id]) {
@@ -21,14 +23,20 @@ export class CharacterDetailsService {
     }
 
     this.isCharacterLoading.set(true);
-    this.http.get<CharacterSingleServerResponse>(`${API_CORE}/people/${id}`).subscribe((response) => {
-      const mappedResponse = characterSinglePropertyMapping(response);
-      this.selectedCharacter.set(mappedResponse);
-      this.cachedCharacters.update((dict) => ({
-        ...dict,
-        [mappedResponse.id]: mappedResponse,
-      }))
-      this.isCharacterLoading.set(false);
-    })
+    this.http.get<CharacterSingleServerResponse>(`${API_CORE}/people/${id}`)
+      .pipe(finalize(() => this.isCharacterLoading.set(false)))
+      .subscribe({
+        next: (response) => {
+          const mappedResponse = characterSinglePropertyMapping(response);
+          this.selectedCharacter.set(mappedResponse);
+          this.cachedCharacters.update((dict) => ({
+            ...dict,
+            [mappedResponse.id]: mappedResponse,
+          }))
+        },
+        error: () => {
+          this.error.set(`Ошибка при загрузке данных о герое #${id}`)
+        }
+      })
   }
 }
