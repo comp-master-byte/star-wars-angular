@@ -1,1 +1,1 @@
-export const API_CORE = 'https://www.sdwapi.tech/api';
+export const API_CORE = 'https://www.swapi.tech/api';
