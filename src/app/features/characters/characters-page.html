@@ -9,6 +9,8 @@
   <div class="flex gap-[15px] flex-wrap">
     @for(character of charactersService.charactersList() | filterList: query : queryKeys; track character.name) {
       <app-character-list-item [character]="character"></app-character-list-item>
+    } @empty {
+      <app-empty-search></app-empty-search>
     }
   </div>
 }

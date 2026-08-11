@@ -5,10 +5,11 @@ import { Loader } from '../../shared/components/loader/loader';
 import { PlanetType } from '../../shared/domain/planet';
 import { Input } from '../../shared/ui/input/input';
 import { FilterListPipe } from '../../shared/pipes/filter-list-pipe';
+import { EmptySearch } from '../../shared/components/empty-search/empty-search';
 
 @Component({
   selector: 'app-planets',
-  imports: [PlanetCard, Loader, Input, FilterListPipe],
+  imports: [PlanetCard, Loader, Input, FilterListPipe, EmptySearch],
   templateUrl: './planets.html',
   styleUrl: './planets.css',
 })

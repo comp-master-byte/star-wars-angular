@@ -7,7 +7,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './stub-page.css',
 })
 export class StubPage {
-  eyebrow = input('Coming soon');
-  title = input('This page is still in hyperspace');
-  description = input('The archives are being prepared. Check back later to explore this section of the galaxy.');
+  eyebrow = input('Скоро будет готово');
+  title = input('Эта страница ещё в гиперпространстве');
+  description = input('Архивы подготавливаются. Вернитесь позже, чтобы исследовать этот раздел галактики.');
 }

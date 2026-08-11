@@ -6,12 +6,12 @@
   </div>
 
   <div class="empty-search__content">
-    <p class="empty-search__eyebrow">Search archives</p>
+    <p class="empty-search__eyebrow">Поиск в архивах</p>
     <h2 class="empty-search__title">{{ title() }}</h2>
 
     @if (query()) {
       <p class="empty-search__query">
-        No records for <span>"{{ query() }}"</span>
+        Нет записей по запросу <span>"{{ query() }}"</span>
       </p>
     }
 

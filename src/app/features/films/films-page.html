@@ -5,6 +5,8 @@
   <div class="flex gap-[15px] flex-wrap">
     @for (film of filmsService.filmsList() | filterList: query : searchQuery; track film.episodeId) {
       <app-film-card [film]="film"></app-film-card>
+    } @empty {
+      <app-empty-search></app-empty-search>
     }
   </div>
 }

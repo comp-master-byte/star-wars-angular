@@ -7,7 +7,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './empty-search.css',
 })
 export class EmptySearch {
-  title = input('Nothing found');
-  description = input('Try changing your search query or explore another part of the galaxy.');
+  title = input('Ничего не найдено');
+  description = input('Попробуйте изменить поисковый запрос или перейти в другой раздел галактики.');
   query = input('');
 }

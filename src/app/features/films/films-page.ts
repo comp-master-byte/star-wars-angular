@@ -6,10 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { Input } from '../../shared/ui/input/input';
 import { FilterListPipe } from '../../shared/pipes/filter-list-pipe';
 import { FilmType } from '../../shared/domain/film';
+import { EmptySearch } from '../../shared/components/empty-search/empty-search';
 
 @Component({
   selector: 'app-films-page',
-  imports: [FilmCard, Loader, FormsModule, FilterListPipe, Input],
+  imports: [FilmCard, Loader, FormsModule, FilterListPipe, Input, EmptySearch],
   templateUrl: './films-page.html',
   styleUrl: './films-page.css',
 })

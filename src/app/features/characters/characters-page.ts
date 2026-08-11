@@ -5,10 +5,11 @@ import { FilterListPipe } from '../../shared/pipes/filter-list-pipe';
 import { Input } from '../../shared/ui/input/input';
 import { CharacterType } from '../../shared';
 import { CharacterListItem } from './components/character-list-item/character-list-item';
+import { EmptySearch } from '../../shared/components/empty-search/empty-search';
 
 @Component({
   selector: 'app-characters-page',
-  imports: [Input, CharacterListItem, Loader, FilterListPipe],
+  imports: [Input, CharacterListItem, Loader, FilterListPipe, EmptySearch],
   templateUrl: './characters-page.html',
   styleUrl: './characters-page.css',
 })
