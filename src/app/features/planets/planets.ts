@@ -6,10 +6,11 @@ import { PlanetType } from '../../shared/domain/planet';
 import { Input } from '../../shared/ui/input/input';
 import { FilterListPipe } from '../../shared/pipes/filter-list-pipe';
 import { EmptySearch } from '../../shared/components/empty-search/empty-search';
+import { ServerError } from '../../shared/components/server-error/server-error';
 
 @Component({
   selector: 'app-planets',
-  imports: [PlanetCard, Loader, Input, FilterListPipe, EmptySearch],
+  imports: [PlanetCard, Loader, Input, FilterListPipe, EmptySearch, ServerError],
   templateUrl: './planets.html',
   styleUrl: './planets.css',
 })

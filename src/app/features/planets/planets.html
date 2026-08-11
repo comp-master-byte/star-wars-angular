@@ -1,15 +1,19 @@
 @if (planetsService.isLoading()) {
   <app-loader></app-loader>
 } @else {
-  <app-input 
-    [(model)]="query"
-    placeholder="Поиск планет..."
-  />
-  <div class="flex gap-[15px] flex-wrap items-start">
-    @for (planet of planetsService.planetsList() | filterList: query : queryKeys; track planet.name) {
-      <app-planet-card [planet]="planet"></app-planet-card>
-    } @empty {
-      <app-empty-search></app-empty-search>
-    }
-  </div>
+  @if(planetsService.error()) {
+    <app-server-error></app-server-error>
+  } @else {
+    <app-input 
+      [(model)]="query"
+      placeholder="Поиск планет..."
+    />
+    <div class="flex gap-[15px] flex-wrap items-start">
+      @for (planet of planetsService.planetsList() | filterList: query : queryKeys; track planet.name) {
+        <app-planet-card [planet]="planet"></app-planet-card>
+      } @empty {
+        <app-empty-search></app-empty-search>
+      }
+    </div>
+  }
 }

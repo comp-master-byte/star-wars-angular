@@ -16,6 +16,7 @@ export class CharactersService {
   public isLoading = signal<boolean>(false);
   public totalPages = signal<number>(0);
   public totalCharacters = signal<number>(0);
+  public error = signal('')
 
   getAll() {
     if(this.charactersList().length > 0) {
@@ -23,19 +24,27 @@ export class CharactersService {
     }
 
     this.isLoading.set(true);
+    this.error.set('');
+
     this.http.get<CharacterServerResponse>(`${API_CORE}/people`, {
       params: {
         expanded: true,
         limit: 50,
         page: 1,
       }
-    }).subscribe((response) => {
-      const mappedResponse = characterPropertiesMapping(response.results);
-      this.characters.set(mappedResponse);
-      this.characterDetailsService.cachedCharacters.set(mappedResponse);
-      this.totalCharacters.set(response.total_records);
-      this.totalPages.set(response.total_pages);
-      this.isLoading.set(false);
+    }).subscribe({
+      next: (response) => {
+        const mappedResponse = characterPropertiesMapping(response.results);
+        this.characters.set(mappedResponse);
+        this.characterDetailsService.cachedCharacters.set(mappedResponse);
+        this.totalCharacters.set(response.total_records);
+        this.totalPages.set(response.total_pages);
+        this.isLoading.set(false);
+      }, 
+      error: () => {
+        this.error.set('Произошла ошибка при загрузке данных');
+        this.isLoading.set(false);
+      }
     })
   }
 

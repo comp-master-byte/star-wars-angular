@@ -1,0 +1,25 @@
+<section class="server-error" aria-live="polite">
+  <div class="server-error__icon" aria-hidden="true">
+    <div class="server-error__core"></div>
+    <div class="server-error__pulse"></div>
+    <span class="server-error__mark">!</span>
+  </div>
+
+  <div class="server-error__content">
+    <p class="server-error__eyebrow">{{ eyebrow() }}</p>
+    <h2 class="server-error__title">{{ title() }}</h2>
+    <p class="server-error__description">{{ description() }}</p>
+
+    @if (code()) {
+      <p class="server-error__code">
+        Код ошибки: <span>{{ code() }}</span>
+      </p>
+    }
+
+    @if (showRetry()) {
+      <button class="server-error__button" type="button" (click)="retry.emit()">
+        Повторить запрос
+      </button>
+    }
+  </div>
+</section>

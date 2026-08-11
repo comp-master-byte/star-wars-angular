@@ -6,10 +6,11 @@ import { Input } from '../../shared/ui/input/input';
 import { CharacterType } from '../../shared';
 import { CharacterListItem } from './components/character-list-item/character-list-item';
 import { EmptySearch } from '../../shared/components/empty-search/empty-search';
+import { ServerError } from '../../shared/components/server-error/server-error';
 
 @Component({
   selector: 'app-characters-page',
-  imports: [Input, CharacterListItem, Loader, FilterListPipe, EmptySearch],
+  imports: [Input, CharacterListItem, Loader, FilterListPipe, EmptySearch, ServerError],
   templateUrl: './characters-page.html',
   styleUrl: './characters-page.css',
 })
