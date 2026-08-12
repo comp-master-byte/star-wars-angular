@@ -1,1 +1,96 @@
-<p>film-page works!</p>
+@if (episodeDetailsService.isEpisodeLoading()) {
+  <section class="episode-page episode-page--center">
+    <div class="episode-page__loading-card">
+      <div class="episode-page__loader" aria-hidden="true"></div>
+      <p class="episode-page__eyebrow">Opening crawl loading</p>
+      <h1 class="episode-page__state-title">Preparing episode archive...</h1>
+    </div>
+  </section>
+} @else if (episodeDetailsService.error()) {
+  <section class="episode-page episode-page--center">
+    <div class="episode-page__state-card">
+      <p class="episode-page__eyebrow">Transmission failed</p>
+      <h1 class="episode-page__state-title">Episode unavailable</h1>
+      <p class="episode-page__state-text">{{ episodeDetailsService.error() }}</p>
+      <a class="episode-page__back-link episode-page__back-link--inline" routerLink="/episodes">
+        Обратно к эпизодам
+      </a>
+    </div>
+  </section>
+} @else if (episodeDetailsService.selectedEpisode(); as episode) {
+  <article class="episode-page">
+    <a class="episode-page__back-link" routerLink="/episodes">Обратно к эпизодам</a>
+
+    <section class="episode-page__hero">
+      <div class="episode-page__poster-card">
+        <div class="episode-page__poster-frame">
+          <img
+            class="episode-page__poster"
+            [src]="episode.img || '/assets/films/episode-4.webp'"
+            [alt]="episode.title"
+          />
+          <div class="episode-page__poster-gradient"></div>
+          <span class="episode-page__badge">Episode {{ episode.episodeId }}</span>
+        </div>
+      </div>
+
+      <div class="episode-page__content">
+        <p class="episode-page__eyebrow">Galactic cinema archive</p>
+        <h1 class="episode-page__title">{{ episode.title }}</h1>
+        <p class="episode-page__release">Released {{ episode.releaseDate }}</p>
+
+        <div class="episode-page__credits">
+          <div class="episode-page__credit-card">
+            <span>Director</span>
+            <strong>{{ episode.director }}</strong>
+          </div>
+          <div class="episode-page__credit-card">
+            <span>Producer</span>
+            <strong>{{ episode.producer }}</strong>
+          </div>
+        </div>
+
+        <section class="episode-page__crawl-card">
+          <span class="episode-page__crawl-label">Opening crawl</span>
+          <p class="episode-page__crawl">{{ episode.openingCrawl }}</p>
+        </section>
+
+        <div class="episode-page__stats">
+          <div class="episode-page__stat">
+            <span>Characters</span>
+            <strong>{{ episode.characters.length }}</strong>
+          </div>
+          <div class="episode-page__stat">
+            <span>Planets</span>
+            <strong>{{ episode.planets.length }}</strong>
+          </div>
+          <div class="episode-page__stat">
+            <span>Starships</span>
+            <strong>{{ episode.starships.length }}</strong>
+          </div>
+          <div class="episode-page__stat">
+            <span>Vehicles</span>
+            <strong>{{ episode.vehicles.length }}</strong>
+          </div>
+          <div class="episode-page__stat">
+            <span>Species</span>
+            <strong>{{ episode.species.length }}</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+} @else {
+  <section class="episode-page episode-page--center">
+    <div class="episode-page__state-card">
+      <p class="episode-page__eyebrow">Archive empty</p>
+      <h1 class="episode-page__state-title">Episode not found</h1>
+      <p class="episode-page__state-text">
+        The requested episode record is missing from the archive.
+      </p>
+      <a class="episode-page__back-link episode-page__back-link--inline" routerLink="/episodes">
+        Обратно к эпизодам
+      </a>
+    </div>
+  </section>
+}

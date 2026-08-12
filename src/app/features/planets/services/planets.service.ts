@@ -5,12 +5,14 @@ import { PlanetServerType } from './planets-server-types';
 import { planetsResponseMapping } from './planets-api-mapping';
 import { API_CORE } from '../../../shared/consts';
 import { finalize } from 'rxjs';
+import { PlanetDetailsService } from './planet-details.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlanetsService {
   private http = inject(HttpClient);
+  private planetDetailsService = inject(PlanetDetailsService);
   public planets = signal<PlanetsDict>({});
   public isLoading = signal(false);
   public error = signal('');
@@ -37,6 +39,7 @@ export class PlanetsService {
       next: (response) => {
         const mappedResponse = planetsResponseMapping(response);
         this.planets.set(mappedResponse);
+        this.planetDetailsService.cachedPlanets.set(mappedResponse);
         this.totalPages.set(response.total_pages);
         this.totalPlanets.set(response.total_records);
       },

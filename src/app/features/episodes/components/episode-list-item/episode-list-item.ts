@@ -12,6 +12,8 @@ export class EpisodeListItem {
   @Input() film!: FilmType;
 
   handleFilmCardClick() {
-    this.router.navigate([`/episodes/${this.film.episodeId}`]);
+    const episode = this.film;
+    if(!episode) return;
+    this.router.navigate([`/episodes/${episode.episodeId}`]);
   }
 }

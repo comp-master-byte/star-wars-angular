@@ -2,8 +2,8 @@ import { CharacterUrlId } from "./character";
 import { FilmUrlId } from "./film";
 
 export type PlanetUrlId = string;
-export type PlanetName = string;
-export type PlanetsDict = Record<PlanetName, PlanetType>;
+export type PlanetId = string;
+export type PlanetsDict = Record<PlanetId, PlanetType>;
 
 export type PlanetType = {
   id: string;

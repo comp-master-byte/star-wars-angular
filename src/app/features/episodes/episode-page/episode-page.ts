@@ -1,15 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { EpisodeDetailsService } from '../services/film-details.service';
 
 @Component({
   selector: 'app-episode-page',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './episode-page.html',
   styleUrl: './episode-page.css',
 })
 export class EpisodePage {
-  private episodeDetailsService = inject(EpisodeDetailsService);
+  public episodeDetailsService = inject(EpisodeDetailsService);
   private activatedRoute = inject(ActivatedRoute);
 
   constructor() {

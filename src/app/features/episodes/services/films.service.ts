@@ -5,12 +5,14 @@ import { API_CORE } from '../../../shared/consts';
 import { FilmDict } from '../../../shared/domain/film';
 import { filmsResponseMapping } from './films-api-mapping';
 import { finalize } from 'rxjs';
+import { EpisodeDetailsService } from './film-details.service';
 
 @Injectable({ 
   providedIn: 'root' 
 })
 export class FilmsService {
   private http: HttpClient = inject(HttpClient);
+  private episodeDetailsService = inject(EpisodeDetailsService);
   public films = signal<FilmDict>({});
   public isLoading = signal<boolean>(false);
   public error = signal('');
@@ -33,6 +35,7 @@ export class FilmsService {
       next: (response) => {
         const mappedResponse = filmsResponseMapping(response);
         this.films.set(mappedResponse);
+        this.episodeDetailsService.cachedEpisodes.set(mappedResponse);
       },
       error: () => {
         this.error.set('Произошла ошибка при загрузке данных');

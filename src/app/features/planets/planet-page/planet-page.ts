@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { PlanetDetailsService } from '../services/planet-details.service';
 
 @Component({
   selector: 'app-planet-page',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './planet-page.html',
   styleUrl: './planet-page.css',
 })

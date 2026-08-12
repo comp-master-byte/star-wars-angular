@@ -32,7 +32,7 @@ export class PlanetDetailsService {
           this.selectedPlanet.set(mappedResponse);
           this.cachedPlanets.update((dict) => ({
             ...dict,
-            [mappedResponse.name]: mappedResponse,
+            [mappedResponse.id]: mappedResponse,
           }));
         },
         error: () => {

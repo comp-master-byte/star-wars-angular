@@ -11,7 +11,15 @@ import { EpisodeListItem } from './components/episode-list-item/episode-list-ite
 
 @Component({
   selector: 'app-episodes-page',
-  imports: [EpisodeListItem, Loader, FormsModule, FilterListPipe, Input, EmptySearch, ServerError],
+  imports: [
+    EpisodeListItem, 
+    Loader, 
+    FormsModule, 
+    FilterListPipe, 
+    Input, 
+    EmptySearch, 
+    ServerError
+  ],
   templateUrl: './episodes-page.html',
   styleUrl: './episodes-page.css',
 })

@@ -1,1 +1,111 @@
-<p>planet-page works!</p>
+@if (planetDetailsService.isPlanetLoading()) {
+  <section class="planet-page planet-page--center">
+    <div class="planet-page__loading-card">
+      <div class="planet-page__orbit-loader" aria-hidden="true">
+        <span></span>
+      </div>
+      <p class="planet-page__eyebrow">Scanning star system</p>
+      <h1 class="planet-page__state-title">Loading planet data...</h1>
+    </div>
+  </section>
+} @else if (planetDetailsService.error()) {
+  <section class="planet-page planet-page--center">
+    <div class="planet-page__state-card">
+      <p class="planet-page__eyebrow">Signal lost</p>
+      <h1 class="planet-page__state-title">Planet unavailable</h1>
+      <p class="planet-page__state-text">{{ planetDetailsService.error() }}</p>
+      <a class="planet-page__back-link planet-page__back-link--inline" routerLink="/planets">
+        Обратно к планетам
+      </a>
+    </div>
+  </section>
+} @else if (planetDetailsService.selectedPlanet(); as planet) {
+  <article class="planet-page">
+    <a class="planet-page__back-link" routerLink="/planets">Обратно к планетам</a>
+
+    <section class="planet-page__hero">
+      <div class="planet-page__visual-card">
+        <div class="planet-page__image-shell">
+          <img
+            class="planet-page__image"
+            [src]="planet.img || '/assets/planets/placeholder.jpeg'"
+            [alt]="planet.name"
+          />
+          <div class="planet-page__atmosphere"></div>
+          <div class="planet-page__horizon"></div>
+        </div>
+      </div>
+
+      <div class="planet-page__info-card">
+        <p class="planet-page__eyebrow">Planetary archive record</p>
+        <div class="planet-page__header">
+          <div>
+            <h1 class="planet-page__title">{{ planet.name }}</h1>
+            <p class="planet-page__subtitle">{{ planet.terrain || 'Unknown terrain' }}</p>
+          </div>
+          <span class="planet-page__id">ID {{ planet.id }}</span>
+        </div>
+
+        <p class="planet-page__summary">
+          Atmospheric report for {{ planet.name }}. The archive contains orbital,
+          climate and population markers collected from galactic survey data.
+        </p>
+
+        <div class="planet-page__highlight-grid">
+          <div class="planet-page__highlight planet-page__highlight--wide">
+            <span>Climate</span>
+            <strong>{{ planet.climate || 'Unknown' }}</strong>
+          </div>
+          <div class="planet-page__highlight">
+            <span>Gravity</span>
+            <strong>{{ planet.gravity || 'Unknown' }}</strong>
+          </div>
+          <div class="planet-page__highlight">
+            <span>Population</span>
+            <strong>{{ planet.population || 'Unknown' }}</strong>
+          </div>
+        </div>
+
+        <div class="planet-page__metrics">
+          <div class="planet-page__metric">
+            <span>Rotation period</span>
+            <strong>{{ planet.rotationPeriod }}</strong>
+          </div>
+          <div class="planet-page__metric">
+            <span>Orbital period</span>
+            <strong>{{ planet.orbitalPeriod }}</strong>
+          </div>
+          <div class="planet-page__metric">
+            <span>Diameter</span>
+            <strong>{{ planet.diameter }}</strong>
+          </div>
+          <div class="planet-page__metric">
+            <span>Surface water</span>
+            <strong>{{ planet.surfaceWater }}</strong>
+          </div>
+          <div class="planet-page__metric">
+            <span>Residents</span>
+            <strong>{{ planet.residents.length }}</strong>
+          </div>
+          <div class="planet-page__metric">
+            <span>Episodes</span>
+            <strong>{{ planet.films.length }}</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+} @else {
+  <section class="planet-page planet-page--center">
+    <div class="planet-page__state-card">
+      <p class="planet-page__eyebrow">Archive empty</p>
+      <h1 class="planet-page__state-title">Planet not found</h1>
+      <p class="planet-page__state-text">
+        The requested planet record is missing from the galactic archive.
+      </p>
+      <a class="planet-page__back-link planet-page__back-link--inline" routerLink="/planets">
+        Обратно к планетам
+      </a>
+    </div>
+  </section>
+}

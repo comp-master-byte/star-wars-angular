@@ -31,7 +31,7 @@ export function planetsResponseMapping(response: PlanetServerType): PlanetsDict 
   for (let i = 0; i < response.results.length; i++) {
     const results = response.results[i];
     const property = response.results[i].properties;
-    mapped[property.name] = createPlanetSignature(results);
+    mapped[results.uid] = createPlanetSignature(results);
   }
 
   return mapped;
