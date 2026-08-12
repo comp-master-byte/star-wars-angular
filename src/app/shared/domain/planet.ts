@@ -6,6 +6,7 @@ export type PlanetName = string;
 export type PlanetsDict = Record<PlanetName, PlanetType>;
 
 export type PlanetType = {
+  id: string;
   name: string;
   img?: string;
   rotationPeriod: string;

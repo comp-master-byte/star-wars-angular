@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CharactersService } from './service/characters.service';
+import { CharactersService } from './services/characters.service';
 import { Loader } from '../../shared/components/loader/loader';
 import { CharactersList } from './components/characters-list/characters-list';
 

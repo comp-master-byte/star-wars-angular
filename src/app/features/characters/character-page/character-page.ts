@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CharacterDetailsService } from '../service/character-details.service';
+import { CharacterDetailsService } from '../services/character-details.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Loader } from '../../../shared/components/loader/loader';
 
@@ -11,7 +11,7 @@ import { Loader } from '../../../shared/components/loader/loader';
 })
 export class CharacterPage {
   private activatedRoute = inject(ActivatedRoute);
-  characterDetailsService = inject(CharacterDetailsService);
+  public characterDetailsService = inject(CharacterDetailsService);
 
   constructor() {
     this.activatedRoute.params.subscribe((params) => {

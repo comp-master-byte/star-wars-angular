@@ -7,6 +7,7 @@ import { Starships } from './features/starships/starships';
 import { CharactersPage } from './features/characters/characters-page';
 import { CharacterPage } from './features/characters/character-page/character-page';
 import { EpisodePage } from './features/episodes/episode-page/episode-page';
+import { PlanetPage } from './features/planets/planet-page/planet-page';
 
 export const routes: Routes = [
   {path: '', component: CharactersPage},
@@ -14,6 +15,7 @@ export const routes: Routes = [
   {path: 'episodes', component: EpisodesPage},
   {path: 'episodes/:id', component: EpisodePage},
   {path: 'planets', component: Planets},
+  {path: 'planets/:id', component: PlanetPage},
   {path: 'species', component: Species},
   {path: 'vehicles', component: Vehicles},
   {path: 'starships', component: Starships},

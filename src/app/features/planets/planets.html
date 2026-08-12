@@ -10,7 +10,7 @@
     />
     <div class="flex gap-[15px] flex-wrap items-start">
       @for (planet of planetsService.planetsList() | filterList: query : queryKeys; track planet.name) {
-        <app-planet-card [planet]="planet"></app-planet-card>
+        <app-planet-list-item [planet]="planet"></app-planet-list-item>
       } @empty {
         <app-empty-search></app-empty-search>
       }

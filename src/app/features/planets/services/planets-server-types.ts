@@ -36,3 +36,7 @@ export type PlanetServerType = {
   total_records: number;
   results: PlanetServerResult[];
 }
+
+export type PlanetSingleServerResponse = {
+  result: PlanetServerResult;
+}
