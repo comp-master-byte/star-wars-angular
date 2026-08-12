@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
-import { FilmType } from '../../../../shared/domain/film';
 import { Router } from '@angular/router';
+import { FilmType } from '@shared/domain';
 @Component({
   selector: 'app-episode-list-item',
   imports: [],

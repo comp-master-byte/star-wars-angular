@@ -1,4 +1,4 @@
-import { PlanetsDict, PlanetType } from "../../../shared/domain/planet";
+import { PlanetsDict, PlanetType } from "@shared/domain";
 import { PLANETS_FULL_DATA_DICT } from "./planets-server-data";
 import { PlanetServerResult, PlanetServerType, PlanetSingleServerResponse } from "./planets-server-types";
 

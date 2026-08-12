@@ -1,13 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FilmsService } from './services/films.service';
-import { Loader } from '../../shared/components/loader/loader';
 import { FormsModule } from '@angular/forms';
-import { Input } from '../../shared/ui/input/input';
-import { FilterListPipe } from '../../shared/pipes/filter-list-pipe';
-import { FilmType } from '../../shared/domain/film';
-import { EmptySearch } from '../../shared/components/empty-search/empty-search';
-import { ServerError } from '../../shared/components/server-error/server-error';
 import { EpisodeListItem } from './components/episode-list-item/episode-list-item';
+import { EmptySearch, Loader, ServerError } from '@shared/components';
+import { FilterListPipe } from '@shared/pipes';
+import { FilmType } from '@shared/domain';
+import { Input } from '@shared/ui';
 
 @Component({
   selector: 'app-episodes-page',

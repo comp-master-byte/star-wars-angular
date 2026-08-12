@@ -1,10 +1,10 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { CharacterDict, CharacterType } from '../../../shared';
 import { HttpClient } from '@angular/common/http';
-import { API_CORE } from '../../../shared/consts';
 import { characterSinglePropertyMapping } from './characters-api-mapping';
 import { CharacterSingleServerResponse } from './characters-server-types';
 import { finalize } from 'rxjs';
+import { CharacterDict, CharacterType } from '@shared/domain';
+import { API_CORE } from '@shared/consts';
 
 @Injectable({
   providedIn: 'root'

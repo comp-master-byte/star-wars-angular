@@ -1,11 +1,11 @@
 import { HttpClient } from "@angular/common/http";
 import { computed, inject, Injectable, signal } from "@angular/core";
 import { CharacterServerResponse } from "./characters-server-types";
-import { CharacterDict } from "../../../shared";
 import { characterPropertiesMapping } from "./characters-api-mapping";
-import { API_CORE } from "../../../shared/consts";
 import { CharacterDetailsService } from "./character-details.service";
 import { finalize } from "rxjs";
+import { CharacterDict } from "@shared/domain";
+import { API_CORE } from "@shared/consts";
 
 @Injectable({
   providedIn: 'root'

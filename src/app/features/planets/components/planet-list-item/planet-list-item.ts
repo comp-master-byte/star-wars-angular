@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
-import { PlanetType } from '../../../../shared/domain/planet';
 import { Router } from '@angular/router';
+import { PlanetType } from '@shared/domain';
 
 @Component({
   selector: 'app-planet-list-item',

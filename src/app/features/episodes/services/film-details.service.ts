@@ -1,10 +1,10 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { FilmDict, FilmType } from '../../../shared/domain/film';
 import { HttpClient } from '@angular/common/http';
-import { API_CORE } from '../../../shared/consts';
 import { finalize } from 'rxjs';
 import { EpisodeSingleServerResponse } from './films-server-types';
 import { episodeSingleResponseMapping } from './films-api-mapping';
+import { FilmDict, FilmType } from '@shared/domain';
+import { API_CORE } from '@shared/consts';
 
 @Injectable({
   providedIn: 'root'

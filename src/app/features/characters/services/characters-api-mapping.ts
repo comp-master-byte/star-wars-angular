@@ -1,4 +1,4 @@
-import { CharacterDict, CharacterType } from "../../../shared";
+import { CharacterDict, CharacterType } from "@shared/domain";
 import { CHARACTERS_FULL_DATA_DICT } from "./characters-server-data";
 import { CharacterResultServer, CharacterSingleServerResponse } from "./characters-server-types";
 

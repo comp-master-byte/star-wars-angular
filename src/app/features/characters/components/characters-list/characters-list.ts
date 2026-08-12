@@ -1,10 +1,9 @@
 import { Component, Input } from '@angular/core';
-import { ServerError } from '../../../../shared/components/server-error/server-error';
-import { Input as InputUI } from '../../../../shared/ui/input/input';
 import { CharacterListItem } from '../character-list-item/character-list-item';
-import { EmptySearch } from '../../../../shared/components/empty-search/empty-search';
-import { CharacterType } from '../../../../shared';
-import { FilterListPipe } from '../../../../shared/pipes/filter-list-pipe';
+import { EmptySearch, ServerError } from '@shared/components';
+import { FilterListPipe } from '@shared/pipes';
+import { Input as InputUI } from '@shared/ui';
+import { CharacterType } from '@shared/domain';
 
 @Component({
   selector: 'app-characters-list',

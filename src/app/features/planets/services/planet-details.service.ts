@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { PlanetsDict, PlanetType } from '../../../shared/domain/planet';
 import { finalize } from 'rxjs';
 import { PlanetSingleServerResponse } from './planets-server-types';
 import { planetSinglePropertyMapping } from './planets-api-mapping';
-import { API_CORE } from '../../../shared/consts';
+import { PlanetsDict, PlanetType } from '@shared/domain';
+import { API_CORE } from '@shared/consts';
 
 @Injectable({
   providedIn: 'root',

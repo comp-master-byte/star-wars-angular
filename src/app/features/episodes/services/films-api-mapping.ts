@@ -1,4 +1,4 @@
-import { FilmType } from "../../../shared/domain/film";
+import { FilmType } from "@shared/domain";
 import { FILMS_FULL_DATA_DICT } from "./films-server-data";
 import { EpisodeSingleServerResponse, FilmsServerResponse, FilmsServerResultProperty } from "./films-server-types";
 

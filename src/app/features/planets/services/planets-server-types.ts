@@ -1,6 +1,4 @@
-import { CharacterUrlId } from "../../../shared";
-import { FilmUrlId } from "../../../shared/domain/film";
-import { PlanetUrlId } from "../../../shared/domain/planet";
+import { CharacterUrlId, FilmUrlId, PlanetUrlId } from "@shared/domain";
 
 type SwapiNumericField = string;
 

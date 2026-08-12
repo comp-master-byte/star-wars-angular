@@ -1,9 +1,7 @@
-import { CharacterUrlId } from "../../../shared";
-import { FilmUrlId } from "../../../shared/domain/film";
-import { PlanetUrlId } from "../../../shared/domain/planet";
-import { SpeciesUrlId } from "../../../shared/domain/species";
-import { StarshipUrlId } from "../../../shared/domain/starship";
-import { VehicleUrlId } from "../../../shared/domain/vehicle";
+import { CharacterUrlId, FilmUrlId, PlanetUrlId } from "@shared/domain";
+import { SpeciesUrlId } from "@shared/domain/species";
+import { StarshipUrlId } from "@shared/domain/starship";
+import { VehicleUrlId } from "@shared/domain/vehicle";
 
 export type FilmsServerResultProperty = {
   title: string;

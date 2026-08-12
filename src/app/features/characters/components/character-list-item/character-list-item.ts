@@ -1,6 +1,6 @@
 import { Component, inject, input } from '@angular/core';
-import { CharacterType } from '../../../../shared';
 import {Router} from '@angular/router';
+import { CharacterType } from '@shared/domain';
 
 @Component({
   selector: 'app-character-list-item',
