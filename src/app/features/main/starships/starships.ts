@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StubPage } from '../../shared/components/stub-page/stub-page';
+import { StubPage } from '@shared/components';
 
 @Component({
   selector: 'app-starships',

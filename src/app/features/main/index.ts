@@ -1,0 +1,9 @@
+export { CharactersPage } from './characters/characters-page';
+export { CharacterPage } from './characters/character-page/character-page';
+export { EpisodesPage } from './episodes/episodes-page';
+export { EpisodePage } from './episodes/episode-page/episode-page';
+export { Planets } from './planets/planets';
+export { PlanetPage } from './planets/planet-page/planet-page';
+export { Species } from './species/species';
+export { Vehicles } from './vehicles/vehicles';
+export { Starships } from './starships/starships';
