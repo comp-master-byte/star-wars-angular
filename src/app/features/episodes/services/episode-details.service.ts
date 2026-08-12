@@ -1,9 +1,9 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { finalize } from 'rxjs';
-import { EpisodeSingleServerResponse } from './films-server-types';
-import { episodeSingleResponseMapping } from './films-api-mapping';
-import { FilmDict, FilmType } from '@shared/domain';
+import { EpisodeSingleServerResponse } from './episodes-server-types';
+import { episodeSingleResponseMapping } from './episodes-api-mapping';
+import { EpisodesDict, EpisodeType } from '@shared/domain';
 import { API_CORE } from '@shared/consts';
 
 @Injectable({
@@ -13,8 +13,8 @@ export class EpisodeDetailsService {
   private http = inject(HttpClient);
   public error = signal('');
   public isEpisodeLoading = signal(false);
-  public selectedEpisode = signal<FilmType|null>(null);
-  public cachedEpisodes = signal<FilmDict>({});
+  public selectedEpisode = signal<EpisodeType|null>(null);
+  public cachedEpisodes = signal<EpisodesDict>({});
 
   getEpisodeById(id: string) {
     if(this.cachedEpisodes()[id]) {

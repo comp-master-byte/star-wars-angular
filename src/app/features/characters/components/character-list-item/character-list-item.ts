@@ -9,8 +9,8 @@ import { CharacterType } from '@shared/domain';
   styleUrl: './character-list-item.css',
 })
 export class CharacterListItem {
-  router = inject(Router);
-  character = input<CharacterType>();
+  private router = inject(Router);
+  public character = input<CharacterType>();
 
   navigateToCharacterSinglePage() {
     const character = this.character();

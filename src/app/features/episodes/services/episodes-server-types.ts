@@ -3,7 +3,7 @@ import { SpeciesUrlId } from "@shared/domain/species";
 import { StarshipUrlId } from "@shared/domain/starship";
 import { VehicleUrlId } from "@shared/domain/vehicle";
 
-export type FilmsServerResultProperty = {
+export type EpisodesServerResultProperty = {
   title: string;
   episode_id: string;
   opening_crawl: string;
@@ -20,20 +20,20 @@ export type FilmsServerResultProperty = {
   url: FilmUrlId;
 }
 
-export type FilmsServerResult = {
+export type EpisodesServerResult = {
   _id: string;
   __v: number;
   description: string;
   uid: string;
-  properties: FilmsServerResultProperty;
+  properties: EpisodesServerResultProperty;
 }
 
-export type FilmsServerResponse = {
+export type EpisodesServerResponse = {
   message: string;
   apiVersion: string;
-  result: FilmsServerResult[];
+  result: EpisodesServerResult[];
 }
 
 export type EpisodeSingleServerResponse = {
-  result: FilmsServerResult;
+  result: EpisodesServerResult;
 }

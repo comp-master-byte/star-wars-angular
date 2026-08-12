@@ -1,9 +1,9 @@
-export type FilmExtraData = {
+export type EpisodesExtraData = {
   img: string;
 }
 
 // Словарь вручную собранных данных, которых не хватает в АПИ для полноценной работы
-export const FILMS_FULL_DATA_DICT: Record<string, FilmExtraData> = {
+export const EPISODES_FULL_DATA_DICT: Record<string, EpisodesExtraData> = {
   '1': {
     img: '/assets/films/episode-1.webp',
   },

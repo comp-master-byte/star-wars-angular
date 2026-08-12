@@ -1,9 +1,8 @@
-
-@if(charactersService.isLoading()) {
-  <app-loader></app-loader>
+@if (charactersService.isLoading()) {
+  <app-loader />
+} @else if (charactersService.error()) {
+  <app-server-error />
 } @else {
-  <app-characters-list 
-    [characters]="charactersService.charactersList()"
-    [error]="charactersService.error()"
-  ></app-characters-list>
+  <app-input [(model)]="query" placeholder="Поиск персонажей..." />
+  <app-characters-list [characters]="charactersService.charactersList()" [query]="query" />
 }

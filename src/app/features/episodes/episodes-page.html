@@ -1,16 +1,8 @@
-@if(filmsService.isLoading()) {
-  <app-loader></app-loader>
+@if (episodesService.isLoading()) {
+  <app-loader />
+} @else if (episodesService.error()) {
+  <app-server-error />
 } @else {
-  @if(filmsService.error()) {
-    <app-server-error></app-server-error>
-  } @else {
-    <app-input [(model)]="query" placeholder="Поиск фильмов..." />
-    <div class="flex gap-[15px] flex-wrap">
-      @for (film of filmsService.filmsList() | filterList: query : searchQuery; track film.episodeId) {
-        <app-episode-list-item [film]="film"></app-episode-list-item>
-      } @empty {
-        <app-empty-search></app-empty-search>
-      }
-    </div>
-  }
+  <app-input [(model)]="query" placeholder="Поиск фильмов..." />
+  <app-episodes-list [episodes]="episodesService.filmsList()" [query]="query" />
 }

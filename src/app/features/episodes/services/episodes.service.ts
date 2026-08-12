@@ -1,19 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, inject, Injectable, signal } from '@angular/core';
-import { FilmsServerResponse } from './films-server-types';
-import { filmsResponseMapping } from './films-api-mapping';
+import { EpisodesServerResponse } from './episodes-server-types';
+import { episodesResponseMapping } from './episodes-api-mapping';
 import { finalize } from 'rxjs';
-import { EpisodeDetailsService } from './film-details.service';
-import { FilmDict } from '@shared/domain';
+import { EpisodeDetailsService } from './episode-details.service';
+import { EpisodesDict } from '@shared/domain';
 import { API_CORE } from '@shared/consts';
 
 @Injectable({ 
   providedIn: 'root' 
 })
-export class FilmsService {
+export class EpisodesService {
   private http: HttpClient = inject(HttpClient);
   private episodeDetailsService = inject(EpisodeDetailsService);
-  public films = signal<FilmDict>({});
+  public films = signal<EpisodesDict>({});
   public isLoading = signal<boolean>(false);
   public error = signal('');
 
@@ -25,7 +25,7 @@ export class FilmsService {
     this.isLoading.set(true);
     this.error.set('');
 
-    this.http.get<FilmsServerResponse>(`${API_CORE}/films`, {
+    this.http.get<EpisodesServerResponse>(`${API_CORE}/films`, {
       params: {
         expanded: true,
       }
@@ -33,7 +33,7 @@ export class FilmsService {
     .pipe(finalize(() => this.isLoading.set(false)))
     .subscribe({
       next: (response) => {
-        const mappedResponse = filmsResponseMapping(response);
+        const mappedResponse = episodesResponseMapping(response);
         this.films.set(mappedResponse);
         this.episodeDetailsService.cachedEpisodes.set(mappedResponse);
       },

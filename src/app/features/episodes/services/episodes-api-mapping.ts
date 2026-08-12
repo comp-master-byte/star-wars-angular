@@ -1,8 +1,8 @@
-import { FilmType } from "@shared/domain";
-import { FILMS_FULL_DATA_DICT } from "./films-server-data";
-import { EpisodeSingleServerResponse, FilmsServerResponse, FilmsServerResultProperty } from "./films-server-types";
+import { EpisodeType } from "@shared/domain";
+import { EPISODES_FULL_DATA_DICT } from "./episodes-server-data";
+import { EpisodeSingleServerResponse, EpisodesServerResponse, EpisodesServerResultProperty } from "./episodes-server-types";
 
-function createEpisodeSignature(property: FilmsServerResultProperty): FilmType {
+function createEpisodeSignature(property: EpisodesServerResultProperty): EpisodeType {
   return {
     title: property.title,
     episodeId: property.episode_id,
@@ -18,12 +18,12 @@ function createEpisodeSignature(property: FilmsServerResultProperty): FilmType {
     created: property.created,
     edited: property.edited,
     url: property.url,
-    ...FILMS_FULL_DATA_DICT[property.episode_id],
+    ...EPISODES_FULL_DATA_DICT[property.episode_id],
   }
 }
 
-export function filmsResponseMapping(response: FilmsServerResponse): Record<string, FilmType> {
-  const result: Record<string, FilmType> = {};
+export function episodesResponseMapping(response: EpisodesServerResponse): Record<string, EpisodeType> {
+  const result: Record<string, EpisodeType> = {};
 
   for (let i = 0; i < response.result.length; i++) {
     const property = response.result[i].properties;
@@ -33,7 +33,7 @@ export function filmsResponseMapping(response: FilmsServerResponse): Record<stri
   return result;
 }
 
-export function episodeSingleResponseMapping(response: EpisodeSingleServerResponse): FilmType {
+export function episodeSingleResponseMapping(response: EpisodeSingleServerResponse): EpisodeType {
   const property = response.result.properties;
   return createEpisodeSignature(property);
 }

@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { FilmType } from '@shared/domain';
+import { EpisodeType } from '@shared/domain';
 @Component({
   selector: 'app-episode-list-item',
   imports: [],
@@ -9,10 +9,10 @@ import { FilmType } from '@shared/domain';
 })
 export class EpisodeListItem {
   private router = inject(Router);
-  @Input() film!: FilmType;
+  @Input() episode!: EpisodeType;
 
   handleFilmCardClick() {
-    const episode = this.film;
+    const episode = this.episode;
     if(!episode) return;
     this.router.navigate([`/episodes/${episode.episodeId}`]);
   }

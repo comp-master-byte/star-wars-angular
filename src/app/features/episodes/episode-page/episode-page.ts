@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { EpisodeDetailsService } from '../services/film-details.service';
+import { EpisodeDetailsService } from '../services/episode-details.service';
 
 @Component({
   selector: 'app-episode-page',

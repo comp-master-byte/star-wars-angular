@@ -1,15 +1,7 @@
-@if (error) {
-  <app-server-error></app-server-error>
-} @else {
-  <app-input [(model)]="query" placeholder="Поиск персонажей..." />
-  <div class="flex gap-[15px] flex-wrap">
-    @for (
-      character of characters | filterList: query : queryKeys;
-      track character.name
-    ) {
-      <app-character-list-item [character]="character"></app-character-list-item>
-    } @empty {
-      <app-empty-search></app-empty-search>
-    }
-  </div>
-}
+<div class="flex gap-[15px] flex-wrap">
+  @for (character of characters() | filterList: query() : queryKeys; track character.name) {
+    <app-character-list-item [character]="character" />
+  } @empty {
+    <app-empty-search />
+  }
+</div>

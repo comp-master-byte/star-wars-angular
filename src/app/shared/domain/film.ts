@@ -5,8 +5,8 @@ import { StarshipUrlId } from "./starship";
 import { VehicleUrlId } from "./vehicle";
 
 export type FilmUrlId = string;
-export type FilmDict = Record<string, FilmType>;
-export type FilmType = {
+export type EpisodesDict = Record<string, EpisodeType>;
+export type EpisodeType = {
   title: string;
   episodeId: string;
   openingCrawl: string;
