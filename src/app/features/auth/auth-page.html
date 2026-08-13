@@ -1,12 +1,5 @@
 <main class="auth-page">
   <section class="auth-page__card" aria-label="Авторизация">
-    <div class="auth-page__visual" aria-hidden="true">
-      <div class="auth-page__planet"></div>
-      <div class="auth-page__orbit auth-page__orbit--outer"></div>
-      <div class="auth-page__orbit auth-page__orbit--inner"></div>
-      <div class="auth-page__ship"></div>
-    </div>
-
     <div class="auth-page__content">
       <p class="auth-page__eyebrow">Галактический архив</p>
       <h1 class="auth-page__title">Вход в систему</h1>
@@ -14,28 +7,40 @@
         Авторизуйтесь, чтобы получить доступ к персонажам, эпизодам и планетам.
       </p>
 
-      <form class="auth-page__form" action="#">
-        <label class="auth-page__field">
-          <span class="auth-page__label">Позывной</span>
+      <form class="auth-page__form" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label class="auth-page__label">Позывной</label>
           <input
             class="auth-page__input"
             type="text"
-            name="username"
             placeholder="Например, skywalker"
-            autocomplete="username"
+            formControlName="login"
           />
-        </label>
+          <p 
+            class="auth-page_error" 
+            *ngIf="loginControlHasErrors"
+          >
+            {{ loginControl.errors?.required && 'Поле логин не может быть пустым' }}
+            {{ loginControl.errors?.minlength && 'Минимальная длина 5 символов' }}
+          </p>
+        </div>
 
-        <label class="auth-page__field">
-          <span class="auth-page__label">Код доступа</span>
+        <div>
+          <label class="auth-page__label">Код доступа</label>
           <input
             class="auth-page__input"
             type="password"
-            name="password"
             placeholder="Введите пароль"
-            autocomplete="current-password"
+            formControlName="password"
           />
-        </label>
+          <p 
+            class="auth-page_error"
+            *ngIf="passwordControlHasErrors"
+          >
+            {{ passwordControl.errors?.required && 'Поле пароль не может быть пустым' }}
+            {{ passwordControl.errors?.minlength && 'Минимальная длина 8 символов' }}
+          </p>
+        </div>
 
         <div class="auth-page__actions">
           <label class="auth-page__remember">
@@ -46,7 +51,11 @@
           <a class="auth-page__link" href="#">Забыли код?</a>
         </div>
 
-        <button class="auth-page__button" type="submit">
+        <button 
+          class="auth-page__button" 
+          type="submit"
+          [disabled]="disabledSubmitBtn"
+        >
           Войти в архив
         </button>
       </form>
