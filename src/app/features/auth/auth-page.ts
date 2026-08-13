@@ -1,8 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CookieController } from '@shared/cookie';
+import { AuthService } from '@shared/services';
 
 @Component({
   selector: 'app-auth-page',
@@ -11,8 +10,7 @@ import { CookieController } from '@shared/cookie';
   styleUrl: './auth-page.css',
 })
 export class AuthPage {
-  private router = inject(Router);
-  private cookieController = inject(CookieController);
+  private authService = inject(AuthService);
   private isSubmitted = false;
   public authForm = new FormGroup({
     login: new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -62,8 +60,6 @@ export class AuthPage {
       return;
     }
 
-    const accessToken = crypto.randomUUID();
-    this.cookieController.set('token', accessToken);
-    this.router.navigate(['/']);
+    this.authService.login();
   }
 }

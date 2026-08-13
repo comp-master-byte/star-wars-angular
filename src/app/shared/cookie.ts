@@ -14,7 +14,7 @@ export interface CookieOptions {
 @Injectable({
   providedIn: 'root'
 })
-export class CookieController {
+export class CookieService {
   set(key: string, value: string, options: CookieOptions = {}): void {
     if (!this.isAvailable()) {
       return;

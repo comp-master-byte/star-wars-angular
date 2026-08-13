@@ -1,28 +1,31 @@
-<div class="sticky top-0 z-50 w-full flex justify-center px-4">
-  <nav
-    class="
-      navigation-panel
-      w-full container h-[56px]
-      text-white
-      flex items-center justify-center
-      gap-x-[25px] text-[14px]
-      mt-[25px]
-      relative
-    "
-  >
-    <img 
-      src="/icons/lord-vader.svg" 
-      class="navigation-icon w-[30px] absolute left-[20px]"
-    >
-    @for(route of routes; track route.path) {
-      <a 
-        [routerLink]="route.path"
-        class="navigation-link"
-        routerLinkActive="navigation-link_active"
-        [routerLinkActiveOptions]="{exact: true}"
-      >
-        {{ route.name }}
-      </a>
-    }
+<div class="navigation">
+  <nav class="navigation__panel">
+    <img
+      src="/icons/lord-vader.svg"
+      class="navigation__icon"
+      alt="Дарт Вейдер"
+    />
+
+    <ul class="navigation__list">
+      @for (route of routes; track route.path) {
+        <li class="navigation__item">
+          <a
+            [routerLink]="route.path"
+            class="navigation__link"
+            routerLinkActive="navigation__link--active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            {{ route.name }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <img
+      src="/svg/profile.svg"
+      class="navigation__icon"
+      alt="Профиль"
+      (click)="authService.logout()"
+    />
   </nav>
 </div>

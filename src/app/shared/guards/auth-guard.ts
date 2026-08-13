@@ -1,13 +1,13 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { CanActivateFn } from '@angular/router';
-import { CookieController } from '@shared/cookie';
+import { CookieService } from '@shared/cookie';
 
 export const authGuard: CanActivateFn = () => {
   const router = inject(Router);
-  const cookieController = inject(CookieController);
+  const cookieService = inject(CookieService);
 
-  if(!cookieController.get('token')) {
+  if(!cookieService.get('token')) {
     return router.createUrlTree(['/auth']);
   }
 
@@ -16,9 +16,9 @@ export const authGuard: CanActivateFn = () => {
 
 export const loggedInGuard: CanActivateFn = () => {
   const router = inject(Router);
-  const cookieController = inject(CookieController);
+  const cookieService = inject(CookieService);
 
-  if(cookieController.get('token')) {
+  if(cookieService.get('token')) {
     return router.createUrlTree(['/']);
   }
 

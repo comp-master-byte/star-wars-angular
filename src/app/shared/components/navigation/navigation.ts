@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { AuthService } from '@shared/services';
 
 @Component({
   selector: 'app-navigation',
@@ -8,7 +9,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navigation.css',
 })
 export class Navigation {
-  routes = [
+  public authService = inject(AuthService);
+  public routes = [
     {path: '/', name: 'Персонажи'},
     {path: '/episodes', name: 'Фильмы'},
     {path: '/planets', name: 'Планеты'},
