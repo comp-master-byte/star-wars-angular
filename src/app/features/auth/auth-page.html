@@ -1,1 +1,55 @@
-<p>auth-page works!</p>
+<main class="auth-page">
+  <section class="auth-page__card" aria-label="Авторизация">
+    <div class="auth-page__visual" aria-hidden="true">
+      <div class="auth-page__planet"></div>
+      <div class="auth-page__orbit auth-page__orbit--outer"></div>
+      <div class="auth-page__orbit auth-page__orbit--inner"></div>
+      <div class="auth-page__ship"></div>
+    </div>
+
+    <div class="auth-page__content">
+      <p class="auth-page__eyebrow">Галактический архив</p>
+      <h1 class="auth-page__title">Вход в систему</h1>
+      <p class="auth-page__description">
+        Авторизуйтесь, чтобы получить доступ к персонажам, эпизодам и планетам.
+      </p>
+
+      <form class="auth-page__form" action="#">
+        <label class="auth-page__field">
+          <span class="auth-page__label">Позывной</span>
+          <input
+            class="auth-page__input"
+            type="text"
+            name="username"
+            placeholder="Например, skywalker"
+            autocomplete="username"
+          />
+        </label>
+
+        <label class="auth-page__field">
+          <span class="auth-page__label">Код доступа</span>
+          <input
+            class="auth-page__input"
+            type="password"
+            name="password"
+            placeholder="Введите пароль"
+            autocomplete="current-password"
+          />
+        </label>
+
+        <div class="auth-page__actions">
+          <label class="auth-page__remember">
+            <input type="checkbox" name="remember" />
+            <span>Запомнить меня</span>
+          </label>
+
+          <a class="auth-page__link" href="#">Забыли код?</a>
+        </div>
+
+        <button class="auth-page__button" type="submit">
+          Войти в архив
+        </button>
+      </form>
+    </div>
+  </section>
+</main>

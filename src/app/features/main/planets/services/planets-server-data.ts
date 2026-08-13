@@ -8,7 +8,7 @@ export const PLANETS_FULL_DATA_DICT: Record<string, PlanetExtraData> = {
     img: '/assets/planets/tatooine.jpg',
   },
   'Alderaan': {
-    img: '/assets/planets/alderaan.png',
+    img: '/assets/planets/alderaan.webp',
   },
   'Yavin IV': {
     img: '/assets/planets/yavin-4.webp',
