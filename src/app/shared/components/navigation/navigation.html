@@ -21,11 +21,20 @@
       }
     </ul>
 
-    <img
-      src="/svg/profile.svg"
-      class="navigation__icon"
-      alt="Профиль"
-      (click)="authService.logout()"
-    />
+    <div class="navigation-profile__wrapper">
+      <img
+        src="/svg/profile.svg"
+        class="navigation__icon"
+        alt="Профиль"
+        (click)="handleProfileClick()"
+        (pointerdown)="$event.stopPropagation()"
+      />
+      <app-context-menu
+        [options]="contextMenuOptions"
+        [isVisible]="isContextMenuVisible()"
+        (onMenuOptionSelect)="handleProfileMenuSelect($event)"
+        (clickOutside)="isContextMenuVisible.set(false)"
+      ></app-context-menu>
+    </div>
   </nav>
 </div>

@@ -12,6 +12,7 @@ import { AuthService } from '@shared/services';
 export class AuthPage {
   private authService = inject(AuthService);
   private isSubmitted = false;
+  private hackCounter = 0;
   public authForm = new FormGroup({
     login: new FormControl('', [Validators.required, Validators.minLength(5)]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
@@ -61,5 +62,13 @@ export class AuthPage {
     }
 
     this.authService.login();
+  }
+
+  authHack() {
+    this.hackCounter += 1;
+
+    if(this.hackCounter === 5) {
+      this.authService.login();
+    }
   }
 }

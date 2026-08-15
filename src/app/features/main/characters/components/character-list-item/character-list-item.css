@@ -21,9 +21,7 @@
 .character-stat {
   min-width: 0;
   padding: 8px 6px;
-  border: 1px solid rgba(255, 232, 31, 0.18);
   border-radius: 10px;
-  background: rgba(255, 232, 31, 0.05);
 }
 
 .character-stat__label,

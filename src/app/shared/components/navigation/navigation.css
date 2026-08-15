@@ -122,3 +122,7 @@
     white-space: nowrap;
   }
 }
+
+.navigation-profile__wrapper {
+  position: relative;
+}
