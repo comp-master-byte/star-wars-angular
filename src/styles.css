@@ -19,6 +19,12 @@ body {
   color: #fff;
 }
 
+.app-container {
+  width: min(100% - 32px, 1280px);
+  margin: 0 auto;
+  padding-top: 50px;
+}
+
 body::before {
   content: '';
   position: fixed;

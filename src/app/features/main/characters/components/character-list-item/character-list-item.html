@@ -1,58 +1,49 @@
 <div
   (click)="navigateToCharacterSinglePage()"
-  class="
-    character-card group relative w-[300px] h-[430px] rounded-xl
-    bg-bg-main/95
-    border border-main/20
-    overflow-hidden
-    flex flex-col
-    shadow-xl shadow-black/60
-    transition-all duration-300
-    hover:border-main/80 hover:shadow-main/20 hover:-translate-y-1
-  "
+  class="character-card"
 >
-  <div class="relative w-full h-[275px] overflow-hidden bg-black">
+  <div class="character-card__image-box">
     <img
       [src]="character()?.img || '/assets/characters/placeholder.jpeg'"
       [alt]="character()?.name"
-      class="w-full h-full object-cover transition-transform duration-700"
+      class="character-card__image"
     />
 
-    <div class="absolute inset-0 bg-gradient-to-t from-bg-main via-bg-main/20 to-transparent"></div>
-    <div class="absolute inset-0 character-card__scanline"></div>
+    <div class="character-card__overlay"></div>
+    <div class="character-card__scanline"></div>
 
-    <span class="absolute top-3 left-3 px-2 py-1 rounded-full bg-bg-main/80 border border-main/30 text-main text-[11px] uppercase tracking-[0.18em]">
-      {{ character()?.gender || 'unknown' }}
+    <span class="character-card__badge">
+      {{ character()?.gender || 'неизвестно' }}
     </span>
   </div>
 
-  <div class="flex-1 w-full flex flex-col px-4 py-4 text-center">
-    <h3 class="text-white text-xl font-semibold tracking-wide truncate">
+  <div class="character-card__content">
+    <h3 class="character-card__title">
       {{character()?.name}}
     </h3>
 
-    <p class="text-main text-[11px] uppercase tracking-[0.22em] mt-1 truncate">
-      {{character()?.designation || 'Galactic citizen'}}
+    <p class="character-card__subtitle">
+      {{character()?.designation || 'Житель галактики'}}
     </p>
 
-    <div class="grid grid-cols-3 gap-2 mt-4 text-neutral-400 text-xs">
+    <div class="character-card__stats">
       <span class="character-stat">
-        <span class="character-stat__label">Height</span>
+        <span class="character-stat__label">Рост</span>
         <span class="character-stat__value">{{character()?.height}}</span>
       </span>
       <span class="character-stat">
-        <span class="character-stat__label">Birth</span>
+        <span class="character-stat__label">Год</span>
         <span class="character-stat__value">{{character()?.birthYear}}</span>
       </span>
       <span class="character-stat">
-        <span class="character-stat__label">Mass</span>
+        <span class="character-stat__label">Масса</span>
         <span class="character-stat__value">{{character()?.mass}}</span>
       </span>
     </div>
 
-    <div class="mt-auto pt-3 flex items-center justify-center gap-2 text-[11px] uppercase tracking-[0.2em] text-neutral-500 ">
-      <span class="w-1.5 h-1.5 rounded-full bg-main shadow-[0_0_10px_rgba(255,232,31,0.9)]"></span>
-      Archives record
+    <div class="character-card__footer">
+      <span class="character-card__footer-dot"></span>
+      Запись архива
     </div>
   </div>
 </div>

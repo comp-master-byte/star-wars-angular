@@ -25,13 +25,13 @@
       </div>
 
       <div class="character-page__info">
-        <p class="character-page__eyebrow">Imperial archive record</p>
+        <p class="character-page__eyebrow">Запись имперского архива</p>
 
         <div class="character-page__header">
           <div>
             <h1 class="character-page__title">{{ character.name }}</h1>
             <p class="character-page__designation">
-              {{ character.designation || 'Galactic citizen' }}
+              {{ character.designation || 'Житель галактики' }}
             </p>
           </div>
 
@@ -39,52 +39,52 @@
         </div>
 
         <p class="character-page__summary">
-          Profile data collected from the galactic archive. Biological markers,
-          affiliations and travel records are listed below.
+          Данные профиля собраны из галактического архива. Биологические признаки,
+          связи и записи перемещений указаны ниже.
         </p>
 
         <div class="character-page__stats">
           <div class="character-page__stat">
-            <span class="character-page__stat-label">Height</span>
+            <span class="character-page__stat-label">Рост</span>
             <strong class="character-page__stat-value">{{ character.height }}</strong>
           </div>
           <div class="character-page__stat">
-            <span class="character-page__stat-label">Mass</span>
+            <span class="character-page__stat-label">Масса</span>
             <strong class="character-page__stat-value">{{ character.mass }}</strong>
           </div>
           <div class="character-page__stat">
-            <span class="character-page__stat-label">Birth year</span>
+            <span class="character-page__stat-label">Год рождения</span>
             <strong class="character-page__stat-value">{{ character.birthYear }}</strong>
           </div>
           <div class="character-page__stat">
-            <span class="character-page__stat-label">Gender</span>
+            <span class="character-page__stat-label">Пол</span>
             <strong class="character-page__stat-value">{{ character.gender }}</strong>
           </div>
         </div>
 
         <div class="character-page__details">
           <div class="character-page__detail">
-            <span>Hair color</span>
+            <span>Цвет волос</span>
             <strong>{{ character.hairColor }}</strong>
           </div>
           <div class="character-page__detail">
-            <span>Skin color</span>
+            <span>Цвет кожи</span>
             <strong>{{ character.skinColor }}</strong>
           </div>
           <div class="character-page__detail">
-            <span>Eye color</span>
+            <span>Цвет глаз</span>
             <strong>{{ character.eyeColor }}</strong>
           </div>
           <div class="character-page__detail">
-            <span>Films</span>
+            <span>Фильмы</span>
             <strong>{{ character.films.length }}</strong>
           </div>
           <div class="character-page__detail">
-            <span>Starships</span>
+            <span>Корабли</span>
             <strong>{{ character.starships.length }}</strong>
           </div>
           <div class="character-page__detail">
-            <span>Vehicles</span>
+            <span>Транспорт</span>
             <strong>{{ character.vehicles.length }}</strong>
           </div>
         </div>
@@ -94,13 +94,13 @@
 } @else {
   <section class="character-page character-page--empty">
     <div class="character-page__empty-card">
-      <p class="character-page__eyebrow">Archive unavailable</p>
-      <h1 class="character-page__title">Character not found</h1>
+      <p class="character-page__eyebrow">Архив недоступен</p>
+      <h1 class="character-page__title">Персонаж не найден</h1>
       <p class="character-page__summary">
-        The requested record is missing from the galactic archive.
+        Запрошенная запись отсутствует в галактическом архиве.
       </p>
       <a class="character-page__back-link character-page__back-link--inline" routerLink="/">
-        Back to archives
+        Обратно к персонажам
       </a>
     </div>
   </section>

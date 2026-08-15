@@ -1,4 +1,4 @@
-<div class="flex gap-[15px] flex-wrap">
+<div class="characters-list">
   @for (character of characters() | filterList: query() : queryKeys; track character.name) {
     <app-character-list-item [character]="character" />
   } @empty {
