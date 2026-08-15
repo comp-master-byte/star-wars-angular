@@ -52,6 +52,10 @@
   filter: drop-shadow(0 0 8px rgba(255, 232, 31, 0.35));
 }
 
+.navigation__icon-profile {
+  cursor: pointer;
+}
+
 .navigation__list {
   position: relative;
   z-index: 1;

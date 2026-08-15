@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AccountLayout, FavoritesPage, ProfilePage } from '@features/account';
 import { AuthPage } from '@features/auth/auth-page';
 import {
   CharacterPage,
@@ -34,6 +35,15 @@ export const routes: Routes = [
       { path: 'species', component: Species },
       { path: 'vehicles', component: Vehicles },
       { path: 'starships', component: Starships },
+    ],
+  },
+  {
+    path: 'account',
+    component: AccountLayout,
+    canActivate: [authGuard],
+    children: [
+      { path: 'profile', component: ProfilePage },
+      { path: 'favorites', component: FavoritesPage },
     ],
   },
   { path: '**', redirectTo: 'auth' },

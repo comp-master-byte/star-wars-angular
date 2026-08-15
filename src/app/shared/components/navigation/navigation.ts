@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '@shared/services';
 import { ContextMenu, ContextMenuOption } from '@shared/ui';
 
@@ -10,11 +10,12 @@ import { ContextMenu, ContextMenuOption } from '@shared/ui';
   styleUrl: './navigation.css',
 })
 export class Navigation {
-  public authService = inject(AuthService);
+  private router = inject(Router);
+  private authService = inject(AuthService);
   public isContextMenuVisible = signal(false);
   public contextMenuOptions: ContextMenuOption[] = [
     {id: 'profile', label: 'Профиль', variant: 'default'},
-    {id: 'favourite', label: 'Избранное', variant: 'default'},
+    {id: 'favorites', label: 'Избранное', variant: 'default'},
     {id: 'logout', label: 'Выйти', variant: 'danger'},
   ]
   public routes = [
@@ -31,7 +32,18 @@ export class Navigation {
   }
 
   handleProfileMenuSelect(option: ContextMenuOption) {
-    if(option.id === 'logout') this.authService.logout();
+    if(option.id === 'profile') {
+      this.router.navigate(['/account/profile']);
+    }
+
+    if(option.id === 'favorites') {
+      this.router.navigate(['/account/favorites']);
+    }
+
+    if(option.id === 'logout') {
+      this.authService.logout();
+    } 
+
     this.isContextMenuVisible.set(false);
   }
 }
