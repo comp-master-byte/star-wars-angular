@@ -1,49 +1,33 @@
 <div
-  (click)="navigateToCharacterSinglePage()"
   class="character-card"
+  (click)="handleCharacterItemClick()"
+  [style.--accent-color]="character()?.color"
+  [style.background-image]="`url(${character()?.img || '/assets/characters/placeholder.jpeg'})`"
 >
-  <div class="character-card__image-box">
-    <img
-      [src]="character()?.img || '/assets/characters/placeholder.jpeg'"
-      [alt]="character()?.name"
-      class="character-card__image"
-    />
-
-    <div class="character-card__overlay"></div>
-    <div class="character-card__scanline"></div>
-
-    <span class="character-card__badge">
-      {{ character()?.gender || 'неизвестно' }}
-    </span>
-  </div>
-
   <div class="character-card__content">
-    <h3 class="character-card__title">
-      {{character()?.name}}
-    </h3>
+    <div class="character-card__inner">
+      <h3 class="character-card__title">
+        {{ character()?.name }}
+      </h3>
 
-    <p class="character-card__subtitle">
-      {{character()?.designation || 'Житель галактики'}}
-    </p>
+      <p class="character-card__subtitle">
+        {{ character()?.designation || 'Житель галактики' }}
+      </p>
 
-    <div class="character-card__stats">
-      <span class="character-stat">
-        <span class="character-stat__label">Рост</span>
-        <span class="character-stat__value">{{character()?.height}}</span>
-      </span>
-      <span class="character-stat">
-        <span class="character-stat__label">Год</span>
-        <span class="character-stat__value">{{character()?.birthYear}}</span>
-      </span>
-      <span class="character-stat">
-        <span class="character-stat__label">Масса</span>
-        <span class="character-stat__value">{{character()?.mass}}</span>
-      </span>
-    </div>
-
-    <div class="character-card__footer">
-      <span class="character-card__footer-dot"></span>
-      Запись архива
+      <div class="character-card__stats">
+        <span class="character-stat">
+          <span class="character-stat__label">Рост</span>
+          <span class="character-stat__value">{{ character()?.height }}</span>
+        </span>
+        <span class="character-stat">
+          <span class="character-stat__label">Год</span>
+          <span class="character-stat__value">{{ character()?.birthYear }}</span>
+        </span>
+        <span class="character-stat">
+          <span class="character-stat__label">Масса</span>
+          <span class="character-stat__value">{{ character()?.mass }}</span>
+        </span>
+      </div>
     </div>
   </div>
 </div>

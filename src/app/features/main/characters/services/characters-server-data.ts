@@ -1,5 +1,6 @@
 export type CharactersExtraData = {
   img?: string;
+  color?: string;
   designation: string;
 }
 
@@ -8,6 +9,7 @@ export const CHARACTERS_FULL_DATA_DICT: Record<string, CharactersExtraData> = {
   '1': {
     img: '/assets/characters/luke.jpg',
     designation: 'Jedi Knight',
+    color: 'green',
   },
   '2': {
     img: '/assets/characters/c-3po.jpeg',
@@ -20,14 +22,18 @@ export const CHARACTERS_FULL_DATA_DICT: Record<string, CharactersExtraData> = {
   '4': {
     img: '/assets/characters/dart-vader.webp',
     designation: 'Sith Lord',
+    color: 'red'
   },
   '5': {
+    img: '/assets/characters/leia.webp',
     designation: 'Rebel Leader',
   },
   '6': {
+    img: '/assets/characters/owen.jpeg',
     designation: 'Moisture Farmer',
   },
   '7': {
+    img: '/assets/characters/beru.jpg',
     designation: 'Moisture Farmer',
   },
   '8': {
@@ -41,12 +47,15 @@ export const CHARACTERS_FULL_DATA_DICT: Record<string, CharactersExtraData> = {
   '10': {
     img: '/assets/characters/obi-wan.jpg',
     designation: 'Jedi Master',
+    color: 'blue',
   },
   '11': {
     img: '/assets/characters/anakin.jpeg',
     designation: 'Jedi Knight',
+    color: 'blue',
   },
   '12': {
+    img: '/assets/characters/tarkin.png',
     designation: 'Imperial Governor',
   },
   '13': {
@@ -62,6 +71,7 @@ export const CHARACTERS_FULL_DATA_DICT: Record<string, CharactersExtraData> = {
     designation: 'Bounty Hunter',
   },
   '16': {
+    img: '/assets/characters/jabba.webp',
     designation: 'Crime Lord',
   },
   '18': {
@@ -76,6 +86,10 @@ export const CHARACTERS_FULL_DATA_DICT: Record<string, CharactersExtraData> = {
   },
   '21': {
     img: '/assets/characters/palpatine.png',
+    designation: 'Sith Lord',
+  },
+  '22': {
+    img: '/assets/characters/boba-fet.jpeg',
     designation: 'Sith Lord',
   },
 }

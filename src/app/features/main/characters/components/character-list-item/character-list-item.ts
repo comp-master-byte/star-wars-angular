@@ -12,7 +12,7 @@ export class CharacterListItem {
   private router = inject(Router);
   public character = input<CharacterType>();
 
-  navigateToCharacterSinglePage() {
+  handleCharacterItemClick() {
     const character = this.character();
     if(!character) return;
     this.router.navigate([`/characters/${character.id}`])

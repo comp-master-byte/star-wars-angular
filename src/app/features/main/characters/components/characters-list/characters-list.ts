@@ -8,7 +8,6 @@ import { CharacterType } from '@shared/domain';
   selector: 'app-characters-list',
   imports: [CharacterListItem, EmptySearch, FilterListPipe],
   templateUrl: './characters-list.html',
-  styleUrl: './characters-list.css',
 })
 export class CharactersList {
   public characters = input<CharacterType[]>([]);

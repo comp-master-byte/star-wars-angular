@@ -9,22 +9,22 @@ export type CharacterDict = Record<string, CharacterType>;
 export type CharacterType = {
   id: string;
   name: string;
-  height: string;
   mass: string;
+  img?: string;
+  height: string;
+  color?: string;
+  eyeColor: string;
   hairColor: string;
   skinColor: string;
-  eyeColor: string;
   birthYear: string;
-  gender: 'male' | 'female' | 'unknown';
-  homeworld: PlanetUrlId;
   films: FilmUrlId[];
+  homeworld: PlanetUrlId;
   species: SpeciesUrlId[];
   vehicles: VehicleUrlId[];
   starships: StarshipUrlId[];
   created: string;
   edited: string;
   url: CharacterUrlId;
-  // mock keys
-  img?: string;
   designation?: string;
+  gender: 'male' | 'female' | 'unknown';
 }

@@ -1,4 +1,4 @@
-<div class="characters-list">
+<div class="render-list">
   @for (character of characters() | filterList: query() : queryKeys; track character.name) {
     <app-character-list-item [character]="character" />
   } @empty {
