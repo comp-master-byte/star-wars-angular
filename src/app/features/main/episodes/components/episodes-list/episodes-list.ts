@@ -8,7 +8,6 @@ import { EmptySearch } from '@shared/components';
   selector: 'app-episodes-list',
   imports: [EpisodeListItem, FilterListPipe, EmptySearch],
   templateUrl: './episodes-list.html',
-  styleUrl: './episodes-list.css',
 })
 export class EpisodesList {
   public query = input('');

@@ -1,33 +1,23 @@
-<div
-  class="character-card"
-  (click)="handleCharacterItemClick()"
-  [style.--accent-color]="character()?.color"
-  [style.background-image]="`url(${character()?.img || '/assets/characters/placeholder.jpeg'})`"
+<app-render-list-item
+  [title]="character().name"
+  [image]="character().img || ''"
+  [accentColor]="character().color || ''"
+  [subtitle]="character().designation || 'Житель галактики'"
+  (onRenderItemClick)="handleCharacterItemClick()"
+  imagePlaceholder="/assets/characters/placeholder.jpeg"
 >
-  <div class="character-card__content">
-    <div class="character-card__inner">
-      <h3 class="character-card__title">
-        {{ character()?.name }}
-      </h3>
-
-      <p class="character-card__subtitle">
-        {{ character()?.designation || 'Житель галактики' }}
-      </p>
-
-      <div class="character-card__stats">
-        <span class="character-stat">
-          <span class="character-stat__label">Рост</span>
-          <span class="character-stat__value">{{ character()?.height }}</span>
-        </span>
-        <span class="character-stat">
-          <span class="character-stat__label">Год</span>
-          <span class="character-stat__value">{{ character()?.birthYear }}</span>
-        </span>
-        <span class="character-stat">
-          <span class="character-stat__label">Масса</span>
-          <span class="character-stat__value">{{ character()?.mass }}</span>
-        </span>
-      </div>
-    </div>
+  <div class="character-card__stats">
+    <span class="character-stat">
+      <span class="character-stat__label">Рост</span>
+      <span class="character-stat__value">{{ character().height }}</span>
+    </span>
+    <span class="character-stat">
+      <span class="character-stat__label">Год</span>
+      <span class="character-stat__value">{{ character().birthYear }}</span>
+    </span>
+    <span class="character-stat">
+      <span class="character-stat__label">Масса</span>
+      <span class="character-stat__value">{{ character().mass }}</span>
+    </span>
   </div>
-</div>
+</app-render-list-item>

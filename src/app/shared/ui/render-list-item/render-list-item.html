@@ -1,0 +1,18 @@
+<div
+  class="render-list-item"
+  (click)="handleRenderItemClick()"
+  [style.--accent-color]="accentColor()"
+  [style.background-image]="`url(${image()||imagePlaceholder()})`"
+>
+  <div class="render-list-item__content">
+    <div class="render-list-item__inner">
+      <h3 class="render-list-item__title">
+        {{ title() }}
+      </h3>
+      <p class="render-list-item__subtitle">
+        {{ subtitle() }}
+      </p>
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

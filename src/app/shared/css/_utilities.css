@@ -1,6 +1,0 @@
-.render-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(308px, 308px));
-  justify-content: center;
-  gap: 16px;
-}
