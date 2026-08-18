@@ -7,19 +7,20 @@ import { VehicleUrlId } from "./vehicle";
 export type FilmUrlId = string;
 export type EpisodesDict = Record<string, EpisodeType>;
 export type EpisodeType = {
+  img: string;
+  color: string;
   title: string;
-  episodeId: string;
-  openingCrawl: string;
-  director: string;
-  producer: string;
-  releaseDate: string;
-  characters: CharacterUrlId[],
-  planets: PlanetUrlId[],
-  starships: StarshipUrlId[],
-  vehicles: VehicleUrlId[],
-  species: SpeciesUrlId[],
-  created: string;
   edited: string;
   url: FilmUrlId;
-  img?: string;
+  created: string;
+  director: string;
+  producer: string;
+  episodeId: string;
+  releaseDate: string;
+  openingCrawl: string;
+  planets: PlanetUrlId[];
+  species: SpeciesUrlId[];
+  vehicles: VehicleUrlId[];
+  starships: StarshipUrlId[];
+  characters: CharacterUrlId[];
 }

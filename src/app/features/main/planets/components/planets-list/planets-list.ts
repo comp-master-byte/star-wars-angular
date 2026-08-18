@@ -8,11 +8,9 @@ import { EmptySearch } from '@shared/components';
   selector: 'app-planets-list',
   imports: [PlanetListItem, FilterListPipe, EmptySearch],
   templateUrl: './planets-list.html',
-  styleUrl: './planets-list.css',
 })
 export class PlanetsList {
   public planets = input<PlanetType[]>([]);
   public query = input('');
   public readonly queryKeys: (keyof PlanetType)[] = ['name', 'climate', 'terrain', 'gravity'];
-
 }

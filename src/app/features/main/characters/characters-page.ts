@@ -8,7 +8,6 @@ import { Input } from '@shared/ui';
   selector: 'app-characters-page',
   imports: [Loader, CharactersList, Input, ServerError],
   templateUrl: './characters-page.html',
-  styleUrl: './characters-page.css',
 })
 export class CharactersPage {
   public charactersService = inject(CharactersService);

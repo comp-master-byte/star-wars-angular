@@ -1,36 +1,7 @@
-<div
-  (click)="handlePlanetItemClick()"
-  class="
-    group w-[300px] rounded-lg overflow-hidden
-    bg-bg-main border border-main/20
-    transition-all duration-300
-    hover:border-main hover:-translate-y-1 hover:shadow-lg hover:shadow-main/10
-  "
+<app-render-list-item
+  [title]="planet().name"
+  [image]="planet().img||''"
+  (onRenderItemClick)="handlePlanetItemClick()"
 >
-  <div class="relative w-full h-[200px] bg-neutral-900 overflow-hidden">
-    <img
-      [src]="planet.img"
-      [alt]="planet.name"
-      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-    />
-    <div class="absolute inset-0 bg-gradient-to-t from-bg-main via-transparent to-transparent"></div>
-    <span class="absolute top-3 left-3 px-2 py-1 rounded-full bg-bg-main/80 border border-main/30 text-main text-xs uppercase tracking-wide">
-      {{ planet.climate || 'Unknown' }}
-    </span>
-  </div>
-  <div class="p-4">
-    <h3 class="text-white text-lg font-semibold">
-      {{ planet.name }}
-    </h3>
-    <p class="text-neutral-400 text-sm mt-1">
-      {{ planet.terrain || 'Unknown terrain' }}
-    </p>
 
-    <div class="flex items-center gap-3 mt-3 text-neutral-500 text-xs">
-      <span>Pop. {{ planet.population || 'Unknown' }}</span>
-      <span class="w-1 h-1 rounded-full bg-neutral-600"></span>
-      <span>{{ (planet.residents ?? []).length }} residents</span>
-    </div>
-  </div>
-  <div class="h-[2px] bg-main scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-</div>
+</app-render-list-item>

@@ -14,7 +14,6 @@ export class CharacterListItem {
   public character = input.required<CharacterType>();
 
   handleCharacterItemClick() {
-    const character = this.character();
-    this.router.navigate([`/characters/${character.id}`])
+    this.router.navigate([`/characters/${this.character().id}`])
   }
 }

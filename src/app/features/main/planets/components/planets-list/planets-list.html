@@ -1,4 +1,4 @@
-<div class="flex gap-[15px] flex-wrap items-start">
+<div class="render-list">
   @for (planet of planets() | filterList: query() : queryKeys; track planet.name) {
     <app-planet-list-item [planet]="planet" />
   } @empty {

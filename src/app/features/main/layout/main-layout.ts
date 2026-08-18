@@ -6,6 +6,5 @@ import { Navigation } from '@shared/components';
   selector: 'app-main-layout',
   imports: [RouterOutlet, Navigation],
   templateUrl: './main-layout.html',
-  styleUrl: './main-layout.css',
 })
 export class MainLayout {}

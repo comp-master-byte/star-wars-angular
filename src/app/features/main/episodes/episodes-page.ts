@@ -15,7 +15,6 @@ import { EpisodesList } from './components/episodes-list/episodes-list';
     ServerError
   ],
   templateUrl: './episodes-page.html',
-  styleUrl: './episodes-page.css',
 })
 export class EpisodesPage {
   public episodesService = inject(EpisodesService);

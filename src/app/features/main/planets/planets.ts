@@ -8,7 +8,6 @@ import { PlanetsList } from './components/planets-list/planets-list';
   selector: 'app-planets',
   imports: [PlanetsList, Loader, Input, ServerError],
   templateUrl: './planets.html',
-  styleUrl: './planets.css',
 })
 export class Planets {
   planetsService = inject(PlanetsService);

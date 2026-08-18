@@ -9,6 +9,7 @@ export type PlanetType = {
   id: string;
   name: string;
   img?: string;
+  color?: string;
   rotationPeriod: string;
   orbitalPeriod: string;
   diameter: string;

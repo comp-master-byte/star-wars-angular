@@ -4,18 +4,3 @@
   justify-content: center;
   gap: 16px;
 }
-
-.render-list-item {
-  height: 400px;
-  border-radius: 8px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-color: #000;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.render-list-item:hover {
-  transform: translateY(-15px);
-  box-shadow: 0 0 20px var(--accent-color, #fff);
-}

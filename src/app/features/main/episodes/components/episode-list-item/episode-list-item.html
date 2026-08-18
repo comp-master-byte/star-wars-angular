@@ -1,28 +1,6 @@
-<div
-  class="render-list-item"
-  (click)="handleFilmCardClick()"
-  [style.background-image]="`url(${episode()?.img})`"
->
-  <div class="character-card__content">
-    <div class="character-card__inner">
-      <h3 class="character-card__title">
-        {{ episode()?.title }}
-      </h3>
-
-      <p class="character-card__subtitle">
-        Эпизод #{{ episode()?.episodeId }}
-      </p>
-
-      <!-- <div class="character-card__stats">
-        <span class="character-stat">
-          <span class="character-stat__label">Директор</span>
-          <span class="character-stat__value">{{ episode()?.director }}</span>
-        </span>
-        <span class="character-stat">
-          <span class="character-stat__label">Продюсер</span>
-          <span class="character-stat__value">{{ episode()?.producer }}</span>
-        </span>
-      </div> -->
-    </div>
-  </div>
-</div>
+<app-render-list-item
+  [title]="episode().title"
+  [image]="episode().img"
+  subtitle="Эпизод #{{ episode().episodeId }}"
+  (onRenderItemClick)="handleEpisodeCardClick()"
+></app-render-list-item>

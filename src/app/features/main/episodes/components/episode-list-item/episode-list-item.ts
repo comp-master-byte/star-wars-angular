@@ -1,19 +1,18 @@
 import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
 import { EpisodeType } from '@shared/domain';
+import { RenderListItem } from '@shared/ui';
 @Component({
   selector: 'app-episode-list-item',
-  imports: [],
+  imports: [RenderListItem],
   templateUrl: './episode-list-item.html',
   styleUrl: './episode-list-item.css',
 })
 export class EpisodeListItem {
   private router = inject(Router);
-  public episode = input<EpisodeType>()
+  public episode = input.required<EpisodeType>();
 
-  handleFilmCardClick() {
-    const episode = this.episode();
-    if(!episode) return;
-    this.router.navigate([`/episodes/${episode.episodeId}`]);
+  handleEpisodeCardClick() {
+    this.router.navigate([`/episodes/${this.episode().episodeId}`]);
   }
 }
