@@ -3,3 +3,4 @@ export { Loader } from '../ui/loader/loader';
 export { Navigation } from './navigation/navigation';
 export { ServerError } from './server-error/server-error';
 export { StubPage } from './stub-page/stub-page';
+export * from './sidebar/sidebar';

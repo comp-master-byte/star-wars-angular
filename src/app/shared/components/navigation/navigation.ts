@@ -16,6 +16,7 @@ export class Navigation {
   public contextMenuOptions: ContextMenuOption[] = [
     {id: 'profile', label: 'Профиль', variant: 'default'},
     {id: 'favorites', label: 'Избранное', variant: 'default'},
+    {id: 'settings', label: 'Настройки', variant: 'default'},
     {id: 'logout', label: 'Выйти', variant: 'danger'},
   ]
   public routes = [
@@ -38,6 +39,10 @@ export class Navigation {
 
     if(option.id === 'favorites') {
       this.router.navigate(['/account/favorites']);
+    }
+
+    if(option.id === 'settings') {
+      this.router.navigate(['/account/settings/appearance']);
     }
 
     if(option.id === 'logout') {
