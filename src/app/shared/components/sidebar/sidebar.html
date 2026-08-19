@@ -1,1 +1,12 @@
-<p>sidebar works!</p>
+<aside class="sidebar">
+  @for(option of options(); track option.id) {
+    <a 
+      [routerLink]="option.href"
+      class="sidebar__link"
+      routerLinkActive="sidebar__link--active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      {{ option.label }}
+    </a>
+  }
+</aside>

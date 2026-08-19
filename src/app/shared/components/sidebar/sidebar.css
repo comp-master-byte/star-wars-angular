@@ -1,0 +1,100 @@
+:host {
+  display: block;
+  flex-shrink: 0;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 240px;
+  min-height: 70vh;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 1px solid rgba(255, 232, 31, 0.28);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(18, 18, 18, 0.92), rgba(5, 5, 5, 0.86)),
+    rgba(0, 0, 0, 0.76);
+  box-shadow:
+    0 0 0 1px rgba(255, 232, 31, 0.06) inset,
+    0 0 28px rgba(255, 232, 31, 0.08),
+    0 14px 36px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+}
+
+.sidebar__link {
+  position: relative;
+  display: block;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+.sidebar__link:hover {
+  color: #FFE81F;
+  background: rgba(255, 232, 31, 0.08);
+  text-shadow: 0 0 12px rgba(255, 232, 31, 0.45);
+}
+
+.sidebar__link--active {
+  color: #FFE81F;
+  text-shadow:
+    0 0 8px rgba(255, 232, 31, 0.72),
+    0 0 22px rgba(255, 232, 31, 0.34);
+}
+
+.sidebar__link--active::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 3px;
+  height: 18px;
+  border-radius: 0 999px 999px 0;
+  background: #FFE81F;
+  box-shadow: 0 0 12px rgba(255, 232, 31, 0.8);
+  transform: translateY(-50%);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 10px;
+  }
+
+  .sidebar__link {
+    flex: 1 1 auto;
+    padding: 10px 12px;
+    text-align: center;
+  }
+
+  .sidebar__link:hover {
+    transform: none;
+  }
+
+  .sidebar__link--active::before {
+    top: auto;
+    bottom: 0;
+    left: 50%;
+    width: 24px;
+    height: 2px;
+    border-radius: 999px;
+    transform: translateX(-50%);
+  }
+}
