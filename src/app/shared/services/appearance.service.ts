@@ -3,28 +3,36 @@ import { Injectable } from "@angular/core";
 const PALETTE_KEY = 'appearance-palette';
 const THEME_KEY = 'appearance-theme';
 
-type ColorPalette = {
-  id: string;
-  hex: string;
-}
+type Palette = 
+  | 'imperial-yellow'
+  | 'rebel-red'
+  | 'hoth-cyan'
+  | 'jedi-green'
+  | 'sith-purple';
+
+type Theme = 'light' | 'dark';
+type AppearancePalette = Record<Palette, string>;
+type AppearanceTheme = Record<Theme, string>;
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppearanceService {
-  public currentPalette!: string;
-  public currentTheme!: string;
-  public themes: ColorPalette[] = [
-    {id: 'white', hex: '#fff'},
-    {id: 'dark', hex: '#000'},
-  ]
-  public palettes: ColorPalette[] = [
-    { id: 'imperial-yellow', hex: '#FFE81F' },
-    { id: 'rebel-red', hex: '#FF3B30' },
-    { id: 'hoth-cyan', hex: '#22D3EE' },
-    { id: 'jedi-green', hex: '#4ADE80' },
-    { id: 'sith-purple', hex: '#A855F7' },
-  ]
+  public currentPalette!: Palette;
+  public currentTheme!: Theme;
+  public themes: AppearanceTheme = {
+    'light': '#fff',
+    'dark': '#000',
+  }
+  public palettes: AppearancePalette = {
+    'imperial-yellow': '#FFE81F',
+    'rebel-red': '#FF3B30',
+    'hoth-cyan': '#22D3EE',
+    'jedi-green': '#4ADE80',
+    'sith-purple': '#A855F7',
+  }
+  public paletteKeys = Object.keys(this.palettes) as Palette[];
+  public themeKeys = Object.keys(this.themes) as Theme[];
 
   init() {
     this.initPalette();
@@ -32,36 +40,36 @@ export class AppearanceService {
   }
 
   private initPalette() {
-    const currentPalette = localStorage.getItem(PALETTE_KEY);
+    const palette = localStorage.getItem(PALETTE_KEY) as Palette;
 
-    if(!currentPalette) {
-      this.currentPalette = 'imperial-yellow';
-      localStorage.setItem(PALETTE_KEY, this.currentPalette);
+    if(!palette) {
+      this.setPalette('imperial-yellow');
       return;
     }
 
-    this.currentPalette = currentPalette;
+    this.setPalette(palette);
   }
 
   private initTheme() {
-    const currentTheme = localStorage.getItem(THEME_KEY);
+    const theme = localStorage.getItem(THEME_KEY) as Theme;
 
-    if(!currentTheme) {
-      this.currentTheme = 'dark';
-      localStorage.setItem(THEME_KEY, this.currentTheme);
+    if(!theme) {
+      this.setTheme('dark');
       return;
     }
 
-    this.currentTheme = currentTheme;
+    this.setTheme(theme);
   }
 
-  setColorPalette(paletteId: ColorPalette['id']) {
-    this.currentPalette = paletteId;
+  setPalette(palette: Palette) {
+    this.currentPalette = palette;
     localStorage.setItem(PALETTE_KEY, this.currentPalette);
+    document.documentElement.style.setProperty('--accent-palette', this.palettes[this.currentPalette]);
   }
 
-  setTheme(themeId: ColorPalette['id']) {
-    this.currentTheme = themeId;
+  setTheme(theme: Theme) {
+    this.currentTheme = theme;
     localStorage.setItem(THEME_KEY, this.currentTheme);
+    document.documentElement.style.setProperty('--accent-theme', this.themes[this.currentTheme]);
   }
 }

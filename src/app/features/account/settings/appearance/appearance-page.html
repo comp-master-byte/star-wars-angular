@@ -1,14 +1,14 @@
 <div class="appearance-block">
   <h3>{{ 'Цветовая палитра' | uppercase }}</h3>
   <div class="appearance-list">
-    @for (palette of appearanceService.palettes; track palette.id) {
+    @for (palette of appearanceService.paletteKeys; track palette) {
       <div 
         class="appearance-palette__list-item" 
-        [style.--accent-color]="palette.hex"
+        [style.--accent-color]="appearanceService.palettes[palette]"
         [ngClass]="{
-          'selected-palette': appearanceService.currentPalette === palette.id
+          'selected-palette': appearanceService.currentPalette === palette
         }"
-        (click)="appearanceService.setColorPalette(palette.id)"
+        (click)="appearanceService.setPalette(palette)"
       ></div>
     }
   </div>
@@ -25,10 +25,10 @@
       }"
     ></div>
     <div 
-      class="appearance-theme__list-item white" 
-      (click)="appearanceService.setTheme('white')"
+      class="appearance-theme__list-item light" 
+      (click)="appearanceService.setTheme('light')"
       [ngClass]="{
-        'selected-theme': appearanceService.currentTheme === 'white'
+        'selected-theme': appearanceService.currentTheme === 'light'
       }"
     ></div>
   </div>
