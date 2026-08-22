@@ -1,3 +1,35 @@
-<p>appearance works!</p>
+<div class="appearance-block">
+  <h3>{{ 'Цветовая палитра' | uppercase }}</h3>
+  <div class="appearance-list">
+    @for (palette of appearanceService.palettes; track palette.id) {
+      <div 
+        class="appearance-palette__list-item" 
+        [style.--accent-color]="palette.hex"
+        [ngClass]="{
+          'selected-palette': appearanceService.currentPalette === palette.id
+        }"
+        (click)="appearanceService.setColorPalette(palette.id)"
+      ></div>
+    }
+  </div>
+</div>
 
-<video src="/video/vader.mp4" autoplay></video>
+<div class="appearance-block">
+  <h3>{{ 'Тема' | uppercase }}</h3>
+  <div class="appearance-list">
+    <div 
+      class="appearance-theme__list-item dark" 
+      (click)="appearanceService.setTheme('dark')"
+      [ngClass]="{
+        'selected-theme': appearanceService.currentTheme === 'dark'
+      }"
+    ></div>
+    <div 
+      class="appearance-theme__list-item white" 
+      (click)="appearanceService.setTheme('white')"
+      [ngClass]="{
+        'selected-theme': appearanceService.currentTheme === 'white'
+      }"
+    ></div>
+  </div>
+</div>  

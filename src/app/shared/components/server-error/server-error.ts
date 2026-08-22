@@ -11,7 +11,7 @@ export class ServerError {
   title = input('Архивы временно недоступны');
   description = input('Не удалось получить данные. Проверьте соединение или попробуйте повторить запрос позже.');
   code = input<string | number | null>(null);
-  showRetry = input(true);
+  showRetry = input(false);
 
   retry = output<void>();
 }
