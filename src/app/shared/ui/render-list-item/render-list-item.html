@@ -1,5 +1,6 @@
 <div
   class="render-list-item"
+  [class.render-list-item--compact]="appearanceService.cardsViewMode === 'compact'"
   (click)="handleRenderItemClick()"
   [style.--accent-color]="accentColor()"
   [style.background-image]="`url(${image()||imagePlaceholder()})`"

@@ -48,3 +48,48 @@
   white-space: nowrap;
   text-align: center;
 }
+
+/* ====== КОМПАКТНЫЙ РЕЖИМ ====== */
+.render-list-item--compact {
+  height: 172px;
+  display: flex;
+  align-items: center;
+  background-position-y: 30%;
+}
+
+.render-list-item--compact .render-list-item__content {
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  padding-left: 16px;
+  background-color: rgba(0,0,0,0.1);
+  width: 100%;
+  transition: background-color .2s ease;
+}
+
+.render-list-item--compact:hover .render-list-item__content {
+  background-color: rgba(0,0,0,0.7);
+  border-radius: 8px;
+  justify-content: flex-start;
+}
+
+.render-list-item--compact .render-list-item__inner {
+  background-color: transparent;
+  padding: 0;
+  text-align: left;
+}
+
+.render-list-item--compact .render-list-item__title {
+  font-size: 14px;
+  text-align: left;
+}
+
+.render-list-item--compact .render-list-item__subtitle {
+  font-size: 9px;
+  text-align: left;
+  margin-top: 2px;
+}
+
+.render-list-item--compact:hover {
+  transform: translateX(4px); 
+}

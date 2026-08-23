@@ -1,4 +1,5 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
+import { AppearanceService } from '@shared/services';
 
 @Component({
   selector: 'app-render-list-item',
@@ -7,6 +8,7 @@ import { Component, input, output } from '@angular/core';
   styleUrl: './render-list-item.css',
 })
 export class RenderListItem {
+  public appearanceService = inject(AppearanceService);
   public title = input('');
   public subtitle = input('');
   public accentColor = input('');
