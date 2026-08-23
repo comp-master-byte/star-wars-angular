@@ -8,7 +8,7 @@
   align-items: center;
   gap: 8px;
   margin-bottom: 24px;
-  color: #FFE81F;
+  color: var(--accent-palette);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.2em;
@@ -27,7 +27,7 @@
 
 .episode-page__back-link:hover {
   color: #ffffff;
-  text-shadow: 0 0 16px rgba(255, 232, 31, 0.68);
+  text-shadow: 0 0 16px color-mix(in srgb, var(--accent-palette) 68%, transparent);
   transform: translateX(-2px);
 }
 
@@ -50,7 +50,7 @@
   z-index: -1;
   height: 320px;
   background:
-    radial-gradient(circle at 20% 30%, rgba(255, 232, 31, 0.18), transparent 32%),
+    radial-gradient(circle at 20% 30%, color-mix(in srgb, var(--accent-palette) 18%, transparent), transparent 32%),
     radial-gradient(circle at 78% 10%, rgba(59, 130, 246, 0.16), transparent 36%);
   filter: blur(14px);
 }
@@ -61,7 +61,7 @@
 .episode-page__loading-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 232, 31, 0.22);
+  border: 1px solid color-mix(in srgb, var(--accent-palette) 22%, transparent);
   border-radius: 28px;
   background:
     linear-gradient(145deg, rgba(22, 22, 22, 0.96), rgba(3, 3, 3, 0.96)),
@@ -80,7 +80,7 @@
   inset: 0;
   pointer-events: none;
   background:
-    linear-gradient(100deg, transparent 0%, rgba(255, 232, 31, 0.12) 48%, transparent 100%),
+    linear-gradient(100deg, transparent 0%, color-mix(in srgb, var(--accent-palette) 12%, transparent) 48%, transparent 100%),
     repeating-linear-gradient(
       180deg,
       rgba(255, 255, 255, 0.035) 0,
@@ -123,17 +123,17 @@
   position: absolute;
   left: 20px;
   bottom: 20px;
-  border: 1px solid rgba(255, 232, 31, 0.36);
+  border: 1px solid color-mix(in srgb, var(--accent-palette) 36%, transparent);
   border-radius: 999px;
   background: rgba(0, 0, 0, 0.66);
   padding: 10px 14px;
-  color: #FFE81F;
+  color: var(--accent-palette);
   font-family: monospace;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  box-shadow: 0 0 22px rgba(255, 232, 31, 0.16);
+  box-shadow: 0 0 22px color-mix(in srgb, var(--accent-palette) 16%, transparent);
 }
 
 .episode-page__content {
@@ -144,7 +144,7 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  color: #FFE81F;
+  color: var(--accent-palette);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.28em;
@@ -161,7 +161,7 @@
   font-weight: 900;
   line-height: 0.9;
   text-shadow:
-    0 0 20px rgba(255, 232, 31, 0.18),
+    0 0 20px color-mix(in srgb, var(--accent-palette) 18%, transparent),
     0 12px 34px rgba(0, 0, 0, 0.64);
 }
 
@@ -169,7 +169,7 @@
   position: relative;
   z-index: 1;
   margin: 18px 0 0;
-  color: rgba(255, 232, 31, 0.86);
+  color: color-mix(in srgb, var(--accent-palette) 86%, transparent);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -186,9 +186,9 @@
 }
 
 .episode-page__credit-card {
-  border: 1px solid rgba(255, 232, 31, 0.18);
+  border: 1px solid color-mix(in srgb, var(--accent-palette) 18%, transparent);
   border-radius: 18px;
-  background: rgba(255, 232, 31, 0.055);
+  background: color-mix(in srgb, var(--accent-palette) 5.5%, transparent);
   padding: 18px;
 }
 
@@ -215,10 +215,10 @@
   position: relative;
   z-index: 1;
   margin-top: 26px;
-  border-left: 2px solid rgba(255, 232, 31, 0.76);
+  border-left: 2px solid color-mix(in srgb, var(--accent-palette) 76%, transparent);
   border-radius: 0 20px 20px 0;
   background:
-    linear-gradient(90deg, rgba(255, 232, 31, 0.1), rgba(255, 232, 31, 0.025)),
+    linear-gradient(90deg, color-mix(in srgb, var(--accent-palette) 10%, transparent), color-mix(in srgb, var(--accent-palette) 2.5%, transparent)),
     rgba(0, 0, 0, 0.28);
   padding: 22px 24px;
 }
@@ -242,7 +242,7 @@
 
 .episode-page__stat {
   min-width: 0;
-  border: 1px solid rgba(255, 232, 31, 0.16);
+  border: 1px solid color-mix(in srgb, var(--accent-palette) 16%, transparent);
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.035);
   padding: 16px;
@@ -294,11 +294,11 @@
   width: 76px;
   height: 76px;
   margin: 0 auto 24px;
-  border: 2px solid rgba(255, 232, 31, 0.18);
-  border-top-color: #FFE81F;
+  border: 2px solid color-mix(in srgb, var(--accent-palette) 18%, transparent);
+  border-top-color: var(--accent-palette);
   border-radius: 50%;
   animation: episode-page-spin 1s linear infinite;
-  box-shadow: 0 0 24px rgba(255, 232, 31, 0.18);
+  box-shadow: 0 0 24px color-mix(in srgb, var(--accent-palette) 18%, transparent);
 }
 
 @keyframes episode-page-spin {

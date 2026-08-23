@@ -21,8 +21,8 @@ export class AppearanceService {
   public currentPalette!: Palette;
   public currentTheme!: Theme;
   public themes: AppearanceTheme = {
-    'light': '#fff',
-    'dark': '#000',
+    'light': '#F2F0E9',
+    'dark': '#0D0D0D',
   }
   public palettes: AppearancePalette = {
     'imperial-yellow': '#FFE81F',

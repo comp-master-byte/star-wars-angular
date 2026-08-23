@@ -1,0 +1,31 @@
+:host {
+  display: block;
+}
+
+.input {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 2rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent-palette) 40%, transparent);
+  border-radius: 0.125rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--accent-palette);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  outline: none;
+  box-shadow: 0 0 20px color-mix(in srgb, var(--accent-palette) 8%, transparent);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.input::placeholder {
+  color: color-mix(in srgb, var(--accent-palette) 30%, transparent);
+}
+
+.input:focus {
+  border-color: var(--accent-palette);
+  box-shadow: 0 0 28px color-mix(in srgb, var(--accent-palette) 22%, transparent);
+}

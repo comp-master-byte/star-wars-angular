@@ -19,15 +19,15 @@
   justify-content: space-between;
   box-sizing: border-box;
   margin-top: 25px;
-  border: 1px solid rgba(255, 232, 31, 0.28);
+  border: 1px solid color-mix(in srgb, var(--accent-palette) 28%, transparent);
   border-radius: 14px;
   padding-inline: 20px;
   background:
     linear-gradient(180deg, rgba(18, 18, 18, 0.92), rgba(5, 5, 5, 0.86)),
     rgba(0, 0, 0, 0.76);
   box-shadow:
-    0 0 0 1px rgba(255, 232, 31, 0.06) inset,
-    0 0 28px rgba(255, 232, 31, 0.12),
+    0 0 0 1px color-mix(in srgb, var(--accent-palette) 6%, transparent) inset,
+    0 0 28px color-mix(in srgb, var(--accent-palette) 12%, transparent),
     0 14px 36px rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(12px);
 }
@@ -38,7 +38,7 @@
   inset: 1px;
   border-radius: 13px;
   pointer-events: none;
-  background: linear-gradient(90deg, transparent, rgba(255, 232, 31, 0.14), transparent);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-palette) 14%, transparent), transparent);
   opacity: 0.75;
 }
 
@@ -49,7 +49,7 @@
   height: 30px;
   object-fit: contain;
   opacity: 0.78;
-  filter: drop-shadow(0 0 8px rgba(255, 232, 31, 0.35));
+  filter: drop-shadow(0 0 8px color-mix(in srgb, var(--accent-palette) 35%, transparent));
 }
 
 .navigation__icon-profile {
@@ -88,10 +88,10 @@
 
 .navigation__link:hover,
 .navigation__link--active {
-  color: #FFE81F;
+  color: var(--accent-palette);
   text-shadow:
-    0 0 8px rgba(255, 232, 31, 0.72),
-    0 0 22px rgba(255, 232, 31, 0.34);
+    0 0 8px color-mix(in srgb, var(--accent-palette) 72%, transparent),
+    0 0 22px color-mix(in srgb, var(--accent-palette) 34%, transparent);
 }
 
 .navigation__link:hover {
@@ -106,8 +106,8 @@
   width: 24px;
   height: 2px;
   border-radius: 999px;
-  background: #FFE81F;
-  box-shadow: 0 0 12px rgba(255, 232, 31, 0.8);
+  background: var(--accent-palette);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent-palette) 80%, transparent);
   transform: translateX(-50%);
 }
 

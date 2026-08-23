@@ -43,6 +43,6 @@
 }
 
 .selected-theme {
-  outline-color: var(--accent-color, #FFE81F); 
+  outline-color: var(--accent-palette);
   outline-offset: 3px;
 }

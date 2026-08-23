@@ -40,7 +40,7 @@
 .render-list-item__subtitle {
   margin: 4px 0 0;
   overflow: hidden;
-  color: #FFE81F;
+  color: var(--accent-palette);
   font-size: 11px;
   letter-spacing: 0.22em;
   text-overflow: ellipsis;
