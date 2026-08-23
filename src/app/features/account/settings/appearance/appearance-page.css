@@ -32,14 +32,7 @@
   transition: outline-color 0.2s ease, outline-offset 0.2s ease;
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.dark {
-  background-color: #000;
-}
-
-.light {
-  background-color: #fff;
+  background-color: var(--accent-theme);
 }
 
 .selected-theme {

@@ -11,7 +11,11 @@ type Palette =
   | 'jedi-green'
   | 'sith-purple';
 
-type Theme = 'light' | 'dark';
+type Theme = 
+  | 'imperial-black'
+  | 'carbon-steel'
+  | 'void-crimson';
+
 type AppearancePalette = Record<Palette, string>;
 type AppearanceTheme = Record<Theme, string>;
 type CardsViewMode = 'compact' | 'default';
@@ -24,9 +28,10 @@ export class AppearanceService {
   public currentPalette!: Palette;
   public currentTheme!: Theme;
   public themes: AppearanceTheme = {
-    'light': '#F2F0E9',
-    'dark': '#0D0D0D',
-    // Добавить вместо светлой темы, еще 2 темные, светлый совсем не смотрится
+    'imperial-black': '#080808', // 0A0A0A | 080808 | 050505 | 030303
+    'carbon-steel': '#12161C',
+    'void-crimson': '#160E12',
+    // Светлая тем: Приложение нужно будет сильно адаптировать к ней, пока не готовы добавлять
   }
   public palettes: AppearancePalette = {
     'imperial-yellow': '#FFE81F',
@@ -70,7 +75,7 @@ export class AppearanceService {
     const theme = localStorage.getItem(THEME_KEY) as Theme;
 
     if(!theme) {
-      this.setTheme('dark');
+      this.setTheme('imperial-black');
       return;
     }
 
@@ -86,7 +91,7 @@ export class AppearanceService {
   setTheme(theme: Theme) {
     this.currentTheme = theme;
     localStorage.setItem(THEME_KEY, this.currentTheme);
-    document.documentElement.style.setProperty('--accent-theme', this.themes[this.currentTheme]);
+    document.documentElement.style.setProperty('--theme-main', this.themes[this.currentTheme]);
   }
 
   setCardsViewMode(mode: CardsViewMode): void {

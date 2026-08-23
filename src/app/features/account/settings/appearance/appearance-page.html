@@ -5,9 +5,7 @@
       <div 
         class="appearance-palette__list-item" 
         [style.--accent-color]="appearanceService.palettes[palette]"
-        [ngClass]="{
-          'selected-palette': appearanceService.currentPalette === palette
-        }"
+        [class.selected-palette]="appearanceService.currentPalette === palette"
         (click)="appearanceService.setPalette(palette)"
       ></div>
     }
@@ -17,20 +15,14 @@
 <div class="appearance-block">
   <h3>{{ 'Тема' | uppercase }}</h3>
   <div class="appearance-list">
-    <div 
-      class="appearance-theme__list-item dark" 
-      (click)="appearanceService.setTheme('dark')"
-      [ngClass]="{
-        'selected-theme': appearanceService.currentTheme === 'dark'
-      }"
-    ></div>
-    <div 
-      class="appearance-theme__list-item light" 
-      (click)="appearanceService.setTheme('light')"
-      [ngClass]="{
-        'selected-theme': appearanceService.currentTheme === 'light'
-      }"
-    ></div>
+    @for(theme of appearanceService.themeKeys; track theme) {
+      <div 
+        class="appearance-theme__list-item"
+        (click)="appearanceService.setTheme(theme)"
+        [class.selected-theme]="appearanceService.currentTheme === theme"
+        [style.--accent-theme]="appearanceService.themes[theme]"
+      ></div>
+    }
   </div>
 </div>  
 

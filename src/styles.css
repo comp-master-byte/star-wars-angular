@@ -5,7 +5,7 @@
 
 @theme {
   --color-main: var(--accent-palette);
-  --color-bg-main: #0D0D0D;
+  --color-bg-main: #0d0d0d;
 }
 
 body {
@@ -13,10 +13,18 @@ body {
   min-height: 100vh;
   isolation: isolate;
   background:
-    radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--accent-palette) 12%, transparent), transparent 26%),
-    radial-gradient(circle at 15% 75%, rgba(96, 165, 250, 0.10), transparent 30%),
-    linear-gradient(180deg, rgba(13, 13, 13, 0.92), rgba(3, 3, 3, 0.98)),
-    #0d0d0d;
+    radial-gradient(
+      circle at 85% 20%,
+      color-mix(in srgb, var(--accent-palette) 12%, transparent),
+      transparent 26%
+    ),
+    radial-gradient(circle at 15% 75%, rgba(96, 165, 250, 0.1), transparent 30%),
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--theme-main) 92%, transparent),
+      color-mix(in srgb, var(--theme-main) 60%, black) /* или 75% black */
+    ),
+    var(--theme-main);
   color: #fff;
 }
 
@@ -34,10 +42,19 @@ body::before {
   pointer-events: none;
   background-image:
     radial-gradient(rgba(255, 255, 255, 0.95) 1px, transparent 1.5px),
-    radial-gradient(color-mix(in srgb, var(--accent-palette) 85%, transparent) 1px, transparent 1.5px),
+    radial-gradient(
+      color-mix(in srgb, var(--accent-palette) 85%, transparent) 1px,
+      transparent 1.5px
+    ),
     radial-gradient(rgba(147, 197, 253, 0.75) 1px, transparent 1.5px);
-  background-size: 70px 70px, 120px 120px, 180px 180px;
-  background-position: 0 0, 40px 60px, 90px 20px;
+  background-size:
+    70px 70px,
+    120px 120px,
+    180px 180px;
+  background-position:
+    0 0,
+    40px 60px,
+    90px 20px;
   opacity: 0.32;
   animation: stars-move 40s linear infinite;
 }
@@ -50,8 +67,11 @@ body::after {
   right: -120px;
   bottom: -80px;
   z-index: -1;
-  background:
-    linear-gradient(135deg, color-mix(in srgb, var(--accent-palette) 16%, transparent), rgba(255, 255, 255, 0.04));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--accent-palette) 16%, transparent),
+    rgba(255, 255, 255, 0.04)
+  );
   mask: url('/icons/lord-vader.svg') center / contain no-repeat;
   -webkit-mask: url('/icons/lord-vader.svg') center / contain no-repeat;
   opacity: 0.5;
@@ -60,9 +80,15 @@ body::after {
 
 @keyframes stars-move {
   from {
-    background-position: 0 0, 40px 60px, 90px 20px;
+    background-position:
+      0 0,
+      40px 60px,
+      90px 20px;
   }
   to {
-    background-position: 300px 600px, 340px 660px, 390px 620px;
+    background-position:
+      300px 600px,
+      340px 660px,
+      390px 620px;
   }
 }
