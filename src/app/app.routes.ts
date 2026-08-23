@@ -7,7 +7,8 @@ import {
   SecurityPage,
   SettingsLayout,
 } from '@features/account';
-import { AuthPage } from '@features/auth/auth-page';
+import { SignUpPage } from '@features/auth';
+import { AuthPage } from '@features/auth/sign-in/auth-page';
 import {
   CharacterPage,
   CharactersPage,
@@ -24,8 +25,13 @@ import { authGuard, loggedInGuard } from '@shared/guards';
 
 export const routes: Routes = [
   {
-    path: 'auth',
+    path: 'sign-in',
     component: AuthPage,
+    canActivate: [loggedInGuard],
+  },
+  {
+    path: 'sign-up',
+    component: SignUpPage,
     canActivate: [loggedInGuard],
   },
   {

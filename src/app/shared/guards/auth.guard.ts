@@ -8,7 +8,7 @@ export const authGuard: CanActivateFn = () => {
   const cookieService = inject(CookieService);
 
   if(!cookieService.get('token')) {
-    return router.createUrlTree(['/auth']);
+    return router.createUrlTree(['/sign-in']);
   }
 
   return true;

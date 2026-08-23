@@ -248,6 +248,15 @@
   transform: translateY(-1px);
 }
 
+.sign-up-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.sign-up-txt {
+  font-size: 14px;
+}
+
 @keyframes auth-page-flight {
   from {
     transform: rotate(0deg) translateX(-50%);
