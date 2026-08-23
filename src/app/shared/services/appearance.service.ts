@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { CARDS_VIEW_KEY } from "@shared/consts";
 
 const PALETTE_KEY = 'appearance-palette';
 const THEME_KEY = 'appearance-theme';
@@ -13,16 +14,19 @@ type Palette =
 type Theme = 'light' | 'dark';
 type AppearancePalette = Record<Palette, string>;
 type AppearanceTheme = Record<Theme, string>;
+type CardsViewMode = 'compact' | 'default';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AppearanceService {
+  public cardsViewMode!: CardsViewMode;
   public currentPalette!: Palette;
   public currentTheme!: Theme;
   public themes: AppearanceTheme = {
     'light': '#F2F0E9',
     'dark': '#0D0D0D',
+    // Добавить вместо светлой темы, еще 2 темные, светлый совсем не смотрится
   }
   public palettes: AppearancePalette = {
     'imperial-yellow': '#FFE81F',
@@ -37,6 +41,18 @@ export class AppearanceService {
   init() {
     this.initPalette();
     this.initTheme();
+    this.initCardsViewMode();
+  }
+
+  private initCardsViewMode() {
+    const cardsViewMode = localStorage.getItem(CARDS_VIEW_KEY) as CardsViewMode;
+
+    if(!cardsViewMode) {
+      this.setCardsViewMode('default');
+      return;
+    }
+
+    this.setCardsViewMode(cardsViewMode);
   }
 
   private initPalette() {
@@ -71,5 +87,10 @@ export class AppearanceService {
     this.currentTheme = theme;
     localStorage.setItem(THEME_KEY, this.currentTheme);
     document.documentElement.style.setProperty('--accent-theme', this.themes[this.currentTheme]);
+  }
+
+  setCardsViewMode(mode: CardsViewMode): void {
+    this.cardsViewMode = mode;
+    localStorage.setItem(CARDS_VIEW_KEY, mode);
   }
 }

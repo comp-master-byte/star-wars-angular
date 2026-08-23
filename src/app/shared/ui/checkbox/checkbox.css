@@ -1,0 +1,45 @@
+.checkbox-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-field__input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex-shrink: 0;
+  accent-color: var(--accent-palette);
+  cursor: pointer;
+}
+
+.checkbox-field__input--checkbox {
+  border-radius: 4px;
+}
+
+.checkbox-field__input--radio {
+  border-radius: 50%;
+}
+
+.checkbox-field__text {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.checkbox-field__input:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent-palette) 60%, transparent);
+  outline-offset: 2px;
+}
+
+.checkbox-field__input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.checkbox-field__input:disabled + .checkbox-field__text {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

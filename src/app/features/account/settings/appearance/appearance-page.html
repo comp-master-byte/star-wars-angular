@@ -33,3 +33,21 @@
     ></div>
   </div>
 </div>  
+
+<div class="appearance-block">
+  <h3>{{ 'Отображение карточек' | uppercase }}</h3>
+  <div class="appearance-list">
+    <app-checkbox 
+      [isChecked]="appearanceService.cardsViewMode === 'compact'"
+      (isCheckedChange)="appearanceService.setCardsViewMode('compact')"
+      variant="radio" 
+      label="Компактный вид"
+    ></app-checkbox>
+    <app-checkbox 
+      [isChecked]="appearanceService.cardsViewMode === 'default'"
+      (isCheckedChange)="appearanceService.setCardsViewMode('default')"
+      variant="radio" 
+      label="Стандартный вид"
+    ></app-checkbox>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<label class="checkbox-field">
+  <input
+    [type]="variant()"
+    [checked]="isChecked()"
+    (change)="handleChecked($event)"
+    class="checkbox-field__input"
+    [class.checkbox-field__input--checkbox]="variant() === 'checkbox'"
+    [class.checkbox-field__input--radio]="variant() === 'radio'"
+  />
+  <span class="checkbox-field__text">{{ label() }}</span>
+</label>
