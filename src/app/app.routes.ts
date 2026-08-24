@@ -67,5 +67,5 @@ export const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: 'auth' },
+  { path: '**', redirectTo: 'sign-in' },
 ];

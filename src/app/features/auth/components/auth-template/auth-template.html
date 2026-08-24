@@ -1,0 +1,12 @@
+<main class="auth-page">
+  <section class="auth-page__card">
+    <div class="auth-page__content">
+      <p class="auth-page__eyebrow">Галактический архив</p>
+      <h1 class="auth-page__title">{{title()}}</h1>
+      <p class="auth-page__description" (click)="handleHuckAuthClick()">
+        {{subtitle()}}
+      </p>
+      <ng-content></ng-content>
+    </div>
+  </section>
+</main>

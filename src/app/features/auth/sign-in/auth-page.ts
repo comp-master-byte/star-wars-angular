@@ -3,10 +3,11 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '@shared/services';
 import { RouterLink } from "@angular/router";
+import { AuthTemplate } from '../components';
 
 @Component({
   selector: 'app-auth-page',
-  imports: [ReactiveFormsModule, CommonModule, RouterLink],
+  imports: [ReactiveFormsModule, CommonModule, RouterLink, AuthTemplate],
   templateUrl: './auth-page.html',
   styleUrl: './auth-page.css',
 })
