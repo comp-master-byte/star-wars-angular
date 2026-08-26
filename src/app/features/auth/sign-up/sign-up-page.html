@@ -2,5 +2,80 @@
   title="Регистрация"
   subtitle="Зарегистрируйтесь, чтобы получить доступ к персонажам, эпизодам и планетам."
 >
+  <form class="sign-up__form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="sign-up__input-wrapper">
+      <label class="ui-input__label">Имя</label>
+      <input
+        type="text"
+        class="ui-input"
+        placeholder="Введите имя"
+        formControlName="firstName"
+      />
+      @if(firstNameError) {
+        <p class="ui-input__error">
+          {{ firstNameControl.errors?.required && 'Заполните ваше имя' }}
+        </p>
+      }
+    </div>
+    <div class="sign-up__input-wrapper">
+      <label class="ui-input__label">Фамилия</label>
+      <input
+        class="ui-input"
+        label="Фамилия"
+        placeholder="Введите фамилию"
+        formControlName="lastName"
+      />
+    </div>
+    <div class="sign-up__input-wrapper">
+      <label class="ui-input__label">Дата рождения</label>
+      <input
+        class="ui-input"
+        label="Дата рождения"
+        placeholder="Введите дату рождения"
+        formControlName="date"
+      />
+    </div>
+    <div class="sign-up__input-wrapper">
+      <label class="ui-input__label">Никнейм</label>
+      <input
+        class="ui-input"
+        label="Никнейм"
+        placeholder="Введите никнейм"
+        formControlName="nickname"
+      />
+      @if(nicknameError) {
+        <p class="ui-input__error">
+          {{ nicknameControl.errors?.required && 'Придумайте себе никнейм' }}
+          {{ nicknameControl.errors?.minlength && 'Минимальная длина 5 символов' }}
+        </p>
+      }
+    </div>
+    <div class="sign-up__input-wrapper">
+      <label class="ui-input__label">Пароль</label>
+      <input
+        class="ui-input"
+        label="Пароль"
+        type="password"
+        placeholder="Введите пароль"
+        formControlName="password"
+      />
+      @if(passwordError) {
+        <p class="ui-input__error">
+          {{ passwordControl.errors?.required && 'Пароль должен быть заполнен' }}
+          {{ passwordControl.errors?.minlength && 'Минимальная длина 8 символов' }}
+        </p>
+      }
+    </div>
 
+    <button 
+      class="ui-button" 
+      type="submit"
+    >
+      Зарегистрироваться
+    </button>
+
+    <div class="sign-up-wrapper">
+      <a class="sign-up-txt" routerLink="/sign-in">Есть аккаунта? Войдите</a>
+    </div>
+  </form>
 </app-auth-template>

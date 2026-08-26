@@ -4,6 +4,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { AuthService } from '@shared/services';
 import { RouterLink } from "@angular/router";
 import { AuthTemplate } from '../components';
+import { AuthSecrets, User } from '@shared/domain';
 
 @Component({
   selector: 'app-auth-page',
@@ -63,14 +64,24 @@ export class AuthPage {
       return;
     }
 
-    this.authService.login();
+    if(!this.authForm.value.login||!this.authForm.value.password) {
+      return;
+    }
+
+    const authSecrets: AuthSecrets = {
+      nickname: this.authForm.value.login,
+      password: this.authForm.value.password,
+    }
+
+    this.authService.login(authSecrets);
   }
 
   authHack() {
     this.hackCounter += 1;
 
     if(this.hackCounter === 5) {
-      this.authService.login();
+      // Нужно доработать в связи с новой авторизацией
+      // this.authService.login();
     }
   }
 }
