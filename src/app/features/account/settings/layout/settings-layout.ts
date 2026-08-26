@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Sidebar, SidebarOption } from '@shared/components';
+import { Sidebar, SidebarOption } from '@shared/components/core';
 
 @Component({
   selector: 'app-settings-layout',

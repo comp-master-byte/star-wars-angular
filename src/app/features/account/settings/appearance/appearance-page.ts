@@ -1,7 +1,7 @@
 import { UpperCasePipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { AppearanceService } from '@shared/services';
-import { Checkbox } from '@shared/ui';
+import { Checkbox } from '@shared/components/ui';
 
 @Component({
   selector: 'app-appearance-page',

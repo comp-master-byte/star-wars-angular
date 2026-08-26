@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { StubPage } from '@shared/components';
+import { StubPage } from '@shared/components/common';
 
 @Component({
   selector: 'app-vehicles',

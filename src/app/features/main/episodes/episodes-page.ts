@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { EpisodesService } from './services/episodes.service';
 import { FormsModule } from '@angular/forms';
-import { Loader, ServerError } from '@shared/components';
-import { Input } from '@shared/ui';
+import { Input, Loader } from '@shared/components/ui';
 import { EpisodesList } from './components/episodes-list/episodes-list';
+import { ServerError } from '@shared/components/common';
 
 @Component({
   selector: 'app-episodes-page',

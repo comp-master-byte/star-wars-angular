@@ -1,7 +1,7 @@
-import { Component, inject, input, Input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
 import { PlanetType } from '@shared/domain';
-import { RenderListItem } from '@shared/ui';
+import { RenderListItem } from '@shared/components/ui';
 
 @Component({
   selector: 'app-planet-list-item',

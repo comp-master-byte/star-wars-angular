@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { CharactersService } from './services/characters.service';
 import { CharactersList } from './components/characters-list/characters-list';
-import { Loader, ServerError } from '@shared/components';
-import { Input } from '@shared/ui';
+import { Input, Loader } from '@shared/components/ui';
+import { ServerError } from '@shared/components/common';
 
 @Component({
   selector: 'app-characters-page',

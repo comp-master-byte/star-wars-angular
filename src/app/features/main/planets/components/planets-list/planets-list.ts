@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { PlanetType } from '@shared/domain';
 import { PlanetListItem } from '../planet-list-item/planet-list-item';
 import { FilterListPipe } from '@shared/pipes';
-import { EmptySearch } from '@shared/components';
+import { EmptySearch } from '@shared/components/common';
 
 @Component({
   selector: 'app-planets-list',

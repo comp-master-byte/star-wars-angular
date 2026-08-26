@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { PlanetsService } from './services/planets.service';
-import { Loader, ServerError } from '@shared/components';
-import { Input } from '@shared/ui';
+import { Input, Loader } from '@shared/components/ui';
 import { PlanetsList } from './components/planets-list/planets-list';
+import { ServerError } from '@shared/components/common';
 
 @Component({
   selector: 'app-planets',

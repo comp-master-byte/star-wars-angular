@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CharacterDetailsService } from '../services/character-details.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { Loader } from '@shared/components';
+import { Loader } from '@shared/components/ui';
 
 @Component({
   selector: 'app-character-page',

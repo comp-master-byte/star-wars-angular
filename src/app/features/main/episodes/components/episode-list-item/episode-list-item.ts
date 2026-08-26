@@ -1,7 +1,7 @@
 import { Component, inject, input } from '@angular/core';
 import { Router } from '@angular/router';
 import { EpisodeType } from '@shared/domain';
-import { RenderListItem } from '@shared/ui';
+import { RenderListItem } from '@shared/components/ui';
 @Component({
   selector: 'app-episode-list-item',
   imports: [RenderListItem],

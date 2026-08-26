@@ -2,7 +2,7 @@ import { Component, input } from '@angular/core';
 import { EpisodeListItem } from '../episode-list-item/episode-list-item';
 import { FilterListPipe } from '@shared/pipes';
 import { EpisodeType } from '@shared/domain';
-import { EmptySearch } from '@shared/components';
+import { EmptySearch } from '@shared/components/common';
 
 @Component({
   selector: 'app-episodes-list',

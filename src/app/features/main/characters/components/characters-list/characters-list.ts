@@ -1,8 +1,8 @@
 import { Component, input } from '@angular/core';
 import { CharacterListItem } from '../character-list-item/character-list-item';
-import { EmptySearch } from '@shared/components';
 import { FilterListPipe } from '@shared/pipes';
 import { CharacterType } from '@shared/domain';
+import { EmptySearch } from '@shared/components/common';
 
 @Component({
   selector: 'app-characters-list',

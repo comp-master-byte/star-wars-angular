@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '@shared/services';
-import { ContextMenu, ContextMenuOption } from '@shared/ui';
+import { ContextMenu, ContextMenuOption } from '@shared/components/ui';
 
 @Component({
   selector: 'app-navigation',
