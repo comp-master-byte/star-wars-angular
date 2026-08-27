@@ -58,5 +58,7 @@
     <div class="sign-up-wrapper">
       <a class="sign-up-txt" routerLink="/sign-up">Нет аккаунта? Зарегистрируйтесь</a>
     </div>
+
   </form>
+  <button (click)="notificationsService.invokeNotification('Пользователя такого нет')">test notification</button>
 </app-auth-template> 

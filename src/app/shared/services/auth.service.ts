@@ -1,14 +1,16 @@
 import { inject, Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { ACCESS_TOKEN, AUTH_TOKEN, USER_KEY } from "@shared/consts";
-import { AuthSecrets, User } from "@shared/domain";
+import { ACCESS_TOKEN, CREATED_USERS_KEY } from "@shared/consts";
+import { AuthSecrets, CreatedUser, CreatedUsers, User } from "@shared/domain";
 import { CookieService } from "@shared/services/cookie.service";
+import { NotificationsService } from "./notifications.service";
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private router = inject(Router);
+  private notificationsService = inject(NotificationsService);
   private cookieService = inject(CookieService);
 
   get isAuthed() {
@@ -16,12 +18,19 @@ export class AuthService {
   }
 
   async login(authSecrets: AuthSecrets) {
-    const authToken = this.cookieService.get(AUTH_TOKEN);
+    const createdUsers: CreatedUsers = JSON.parse(localStorage.getItem(CREATED_USERS_KEY) as string);
+
+    if(!createdUsers[authSecrets.nickname]) {
+      this.notificationsService.invokeNotification('Пользователя с таким логином не существует');
+      return;
+    }
+
     const authKey = `${authSecrets.nickname}:${authSecrets.password}`;
     const authHash = await this.hashString(authKey);
+    const currentUser = createdUsers[authSecrets.nickname];
 
-    if(authHash !== authToken) {
-      // Логин или пароль не верен || такого пользователя нет
+    if(authHash !== currentUser.authHash) {
+      this.notificationsService.invokeNotification('Введен неверный пароль')
       return;
     }
 
@@ -38,8 +47,25 @@ export class AuthService {
   async signUp(user: User, authSecrets: AuthSecrets) {
     const auth = `${authSecrets.nickname}:${authSecrets.password}`;
     const hash = await this.hashString(auth);
-    this.cookieService.set(AUTH_TOKEN, hash); // Сеттим токен подтверждающий регистрацию   
-    localStorage.setItem(USER_KEY, JSON.stringify({[hash]: user})); // Сеттим пользователя по этому токену
+    const createdUsers: CreatedUsers = JSON.parse(localStorage.getItem(CREATED_USERS_KEY) as string);
+
+    if(createdUsers[user.nickName]) {
+      // Значит такой пользователь уже существует;
+      this.notificationsService.invokeNotification('Пользователь с таким логином уже существует');
+      return;
+    }
+
+    const createdUser: CreatedUser = {
+      ...user,
+      authHash: hash,
+    }
+
+    const updatedUsers = {
+      ...createdUsers,
+      [user.nickName]: createdUser,
+    }
+    
+    localStorage.setItem(CREATED_USERS_KEY, JSON.stringify(updatedUsers)); // Сеттим пользователя по этому токену
     this.router.navigate(['/sign-in']);
   }
 

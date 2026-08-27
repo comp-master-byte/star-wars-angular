@@ -1,0 +1,20 @@
+@if (notificationsService.isVisible()) {
+  <div class="notifications">
+    <div class="notifications__toast">
+      <span class="notifications__dot"></span>
+
+      <p class="notifications__message">
+        {{ notificationsService.message() }}
+      </p>
+
+      <button
+        type="button"
+        class="notifications__close"
+        aria-label="Закрыть уведомление"
+        (click)="notificationsService.closeNotification()"
+      >
+        ×
+      </button>
+    </div>
+  </div>
+}

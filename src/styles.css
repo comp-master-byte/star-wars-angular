@@ -8,6 +8,12 @@
   --color-bg-main: #0d0d0d;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   position: relative;
   min-height: 100vh;

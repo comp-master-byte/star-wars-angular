@@ -1,0 +1,111 @@
+:host {
+  display: contents;
+}
+
+.notifications {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 1000;
+  max-width: min(420px, calc(100vw - 32px));
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.notifications__toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid color-mix(in srgb, var(--accent-palette) 35%, transparent);
+  border-radius: 12px;
+  background:
+    linear-gradient(180deg, rgba(18, 18, 18, 0.96), rgba(5, 5, 5, 0.92)),
+    rgba(0, 0, 0, 0.88);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent-palette) 8%, transparent) inset,
+    0 0 28px color-mix(in srgb, var(--accent-palette) 14%, transparent),
+    0 16px 40px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(12px);
+  pointer-events: auto;
+  animation: notifications-slide-in 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.notifications__dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: var(--accent-palette);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--accent-palette) 80%, transparent);
+}
+
+.notifications__message {
+  flex: 1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.45;
+}
+
+.notifications__close {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin: -4px -6px 0 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.notifications__close:hover {
+  color: var(--accent-palette);
+  background: color-mix(in srgb, var(--accent-palette) 10%, transparent);
+}
+
+@keyframes notifications-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(120%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .notifications {
+    top: auto;
+    right: 16px;
+    bottom: 16px;
+    left: 16px;
+    max-width: none;
+    overflow: hidden;
+  }
+
+  .notifications__toast {
+    animation-name: notifications-slide-in-mobile;
+  }
+}
+
+@keyframes notifications-slide-in-mobile {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

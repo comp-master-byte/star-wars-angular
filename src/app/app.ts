@@ -1,16 +1,17 @@
 import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { AppearanceService } from '@shared/services';
+import { Notifications } from "@shared/components/core";
+import { AppService } from './app.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Notifications],
   templateUrl: './app.html',
 })
 export class App {
-  public appearanceService = inject(AppearanceService);
+  public appService = inject(AppService);
 
   constructor() {
-    this.appearanceService.init();
+    this.appService.appInit();
   }
 }
