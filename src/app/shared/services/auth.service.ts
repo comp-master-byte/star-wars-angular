@@ -1,6 +1,6 @@
 import { inject, Injectable } from "@angular/core";
 import { Router } from "@angular/router";
-import { ACCESS_TOKEN, CREATED_USERS_KEY } from "@shared/consts";
+import { ACCESS_TOKEN, CREATED_USERS_KEY, CURRENT_AUTHED_USER } from "@shared/consts";
 import { AuthSecrets, CreatedUser, CreatedUsers, User } from "@shared/domain";
 import { CookieService } from "@shared/services/cookie.service";
 import { NotificationsService } from "./notifications.service";
@@ -36,10 +36,12 @@ export class AuthService {
 
     const accessToken = crypto.randomUUID(); // Если все ок, генерим рандомный токен для сессии
     this.cookieService.set(ACCESS_TOKEN, accessToken);
+    localStorage.setItem(CURRENT_AUTHED_USER, JSON.stringify(currentUser));
     this.router.navigate(['/']);
   }
 
   logout() {
+    localStorage.removeItem(CURRENT_AUTHED_USER);
     this.cookieService.delete(ACCESS_TOKEN);
     this.router.navigate(['/sign-in']);
   }
@@ -49,7 +51,7 @@ export class AuthService {
     const hash = await this.hashString(auth);
     const createdUsers: CreatedUsers = JSON.parse(localStorage.getItem(CREATED_USERS_KEY) as string);
 
-    if(createdUsers[user.nickName]) {
+    if(createdUsers[user.nickname]) {
       // Значит такой пользователь уже существует;
       this.notificationsService.invokeNotification('Пользователь с таким логином уже существует');
       return;
@@ -62,7 +64,7 @@ export class AuthService {
 
     const updatedUsers = {
       ...createdUsers,
-      [user.nickName]: createdUser,
+      [user.nickname]: createdUser,
     }
     
     localStorage.setItem(CREATED_USERS_KEY, JSON.stringify(updatedUsers)); // Сеттим пользователя по этому токену
@@ -70,7 +72,7 @@ export class AuthService {
   }
 
   /**
-   * Простой алгоритм шифрования
+   * Простой алгоритм хэширования
   */
   private async hashString(text: string) {
     const encoder = new TextEncoder();

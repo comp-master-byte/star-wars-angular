@@ -2,7 +2,7 @@ export type User = {
   id: string;
   firstName: string;
   lastName: string;
-  nickName: string;
+  nickname: string;
   date: string;
 }
 

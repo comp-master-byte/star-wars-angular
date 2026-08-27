@@ -87,7 +87,7 @@ export class SignUpPage {
       date: this.signUpForm.value.date||'',
       firstName: this.signUpForm.value.firstName||'',
       lastName: this.signUpForm.value.lastName||'',
-      nickName: this.signUpForm.value.nickname||'',
+      nickname: this.signUpForm.value.nickname||'',
     } 
 
     this.authService.signUp(user, authSecrets)
