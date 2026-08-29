@@ -1,10 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { AuthService, NotificationsService } from '@shared/services';
+import { AuthService } from '@shared/services';
 import { RouterLink } from "@angular/router";
 import { AuthTemplate } from '../components';
-import { AuthSecrets, User } from '@shared/domain';
+import { AuthSecrets } from '@shared/domain';
 
 @Component({
   selector: 'app-auth-page',
@@ -13,8 +13,6 @@ import { AuthSecrets, User } from '@shared/domain';
   styleUrl: './auth-page.css',
 })
 export class AuthPage {
-  public notificationsService = inject(NotificationsService);
-
   private authService = inject(AuthService);
   private isSubmitted = false;
   private hackCounter = 0;

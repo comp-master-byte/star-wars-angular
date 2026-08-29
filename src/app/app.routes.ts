@@ -7,7 +7,7 @@ import {
   SecurityPage,
   SettingsLayout,
 } from '@features/account';
-import { SignUpPage } from '@features/auth';
+import { ResetPasswordPage, SignUpPage } from '@features/auth';
 import { AuthPage } from '@features/auth/sign-in/auth-page';
 import {
   CharacterPage,
@@ -33,6 +33,11 @@ export const routes: Routes = [
     path: 'sign-up',
     component: SignUpPage,
     canActivate: [loggedInGuard],
+  },
+  {
+    path: 'reset-password',
+    component: ResetPasswordPage,
+    canActivate: [loggedInGuard]
   },
   {
     path: '',

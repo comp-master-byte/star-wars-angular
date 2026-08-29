@@ -44,7 +44,7 @@
         <span>Запомнить меня</span>
       </label>
 
-      <a class="auth-page__link" href="#">Забыли код?</a>
+      <a class="auth-page__link" routerLink="/reset-password">Забыли код?</a>
     </div>
 
     <button 
@@ -58,7 +58,5 @@
     <div class="sign-up-wrapper">
       <a class="sign-up-txt" routerLink="/sign-up">Нет аккаунта? Зарегистрируйтесь</a>
     </div>
-
   </form>
-  <button (click)="notificationsService.invokeNotification('Пользователя такого нет')">test notification</button>
 </app-auth-template> 
