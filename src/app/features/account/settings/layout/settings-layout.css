@@ -2,3 +2,10 @@
   display: flex;
   column-gap: 16px;
 }
+
+@media screen and (max-width: 768px) {
+  :host {
+    flex-direction: column;
+    row-gap: 25px;
+  }
+}
