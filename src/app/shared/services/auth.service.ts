@@ -61,7 +61,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem(CURRENT_AUTHED_USER);
     this.cookieService.delete(ACCESS_TOKEN);
-    return this.router.createUrlTree(['/sign-in']);
+    return this.router.navigate(['/sign-in']);
   }
 
   async signUp(user: User, authSecrets: AuthSecrets) {
