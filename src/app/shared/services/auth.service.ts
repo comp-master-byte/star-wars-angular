@@ -2,7 +2,7 @@ import { inject, Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { ACCESS_TOKEN, CREATED_USERS_KEY, CURRENT_AUTHED_USER } from "@shared/consts";
 import { AuthSecrets, CreatedUser, CreatedUsers, User, UserResetPassword } from "@shared/domain";
-import { CookieService } from "@shared/services/cookie.service";
+import { CookieService } from "./cookie.service";
 import { NotificationsService } from "./notifications.service";
 
 @Injectable({
@@ -14,7 +14,25 @@ export class AuthService {
   private cookieService = inject(CookieService);
 
   get isAuthed() {
-    return this.cookieService.has(ACCESS_TOKEN);
+    const sessionToken = this.cookieService.get(ACCESS_TOKEN);
+    const sessionUser: CreatedUser = JSON.parse(localStorage.getItem(CURRENT_AUTHED_USER) as string);
+    
+    if(!sessionToken||!sessionUser) {
+      return false;
+    }
+
+    const existedUsersDB: CreatedUsers = JSON.parse(localStorage.getItem(CREATED_USERS_KEY) as string); 
+    const currentUserDB = existedUsersDB[sessionUser?.nickname];
+
+    if(!currentUserDB) {
+      return false;
+    }
+
+    if(sessionUser.authHash !== currentUserDB.authHash) {
+      return false;
+    }
+
+    return true;
   }
 
   async login(authSecrets: AuthSecrets) {
@@ -23,7 +41,7 @@ export class AuthService {
     if(!createdUsers[authSecrets.nickname]) {
       this.notificationsService.invokeNotification('Пользователя с таким логином не существует');
       return;
-    }
+    }    
 
     const authKey = `${authSecrets.nickname}:${authSecrets.password}`;
     const authHash = await this.hashString(authKey);
@@ -43,7 +61,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem(CURRENT_AUTHED_USER);
     this.cookieService.delete(ACCESS_TOKEN);
-    this.router.navigate(['/sign-in']);
+    return this.router.createUrlTree(['/sign-in']);
   }
 
   async signUp(user: User, authSecrets: AuthSecrets) {
