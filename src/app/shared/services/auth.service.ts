@@ -1,7 +1,7 @@
 import { inject, Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { ACCESS_TOKEN, CREATED_USERS_KEY, CURRENT_AUTHED_USER } from "@shared/consts";
-import { AuthSecrets, CreatedUser, CreatedUsers, User } from "@shared/domain";
+import { AuthSecrets, CreatedUser, CreatedUsers, User, UserResetPassword } from "@shared/domain";
 import { CookieService } from "@shared/services/cookie.service";
 import { NotificationsService } from "./notifications.service";
 
@@ -68,6 +68,27 @@ export class AuthService {
     }
     
     localStorage.setItem(CREATED_USERS_KEY, JSON.stringify(updatedUsers)); // Сеттим пользователя по этому токену
+    this.router.navigate(['/sign-in']);
+  }
+
+  async resetPassword(resetPasswordCreds: UserResetPassword) {
+    const createdUsers: CreatedUsers = JSON.parse(localStorage.getItem(CREATED_USERS_KEY) as string);
+
+    if(!createdUsers[resetPasswordCreds.nickname]) {
+      this.notificationsService.invokeNotification('Пользователь с таким никнеймом не найден');
+      return;
+    }
+
+    const auth = `${resetPasswordCreds.nickname}:${resetPasswordCreds.newPassword}`;
+    const hash = await this.hashString(auth);
+
+    createdUsers[resetPasswordCreds.nickname] = {
+      ...createdUsers[resetPasswordCreds.nickname],
+      authHash: hash,
+    }
+
+    localStorage.setItem(CREATED_USERS_KEY, JSON.stringify(createdUsers));
+    this.notificationsService.invokeNotification('Пароль успешно изменен!');
     this.router.navigate(['/sign-in']);
   }
 

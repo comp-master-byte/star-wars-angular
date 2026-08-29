@@ -70,6 +70,10 @@ export class SignUpPage {
     return false;
   }
 
+  get isDisabledSubmitBtn() {
+    return this.nicknameError||this.firstNameError||this.passwordError;
+  }
+
   onSubmit() {
     this.isSubmitted = true;
 

@@ -49,11 +49,7 @@ export class AuthPage {
     return false;
   }
 
-  get disabledSubmitBtn() {
-    if(!this.isSubmitted) {
-      return false;
-    }
-
+  get isDisabledSubmitBtn() {
     return this.loginControlHasErrors || this.passwordControlHasErrors;
   }
 

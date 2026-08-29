@@ -58,3 +58,32 @@
     color 0.25s ease,
     transform 0.25s ease;
 }
+
+.ui-button:disabled,
+.ui-button__disabled {
+  cursor: not-allowed;
+  border-color: color-mix(in srgb, var(--accent-palette) 22%, transparent);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent-palette) 8%, transparent),
+      color-mix(in srgb, var(--accent-palette) 4%, transparent)
+    );
+  color: color-mix(in srgb, var(--accent-palette) 38%, transparent);
+  box-shadow: none;
+  opacity: 0.55;
+  transform: none;
+  pointer-events: none; /* опционально: блокирует hover/click */
+}
+
+.ui-button:disabled:hover,
+.ui-button__disabled:hover {
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--accent-palette) 8%, transparent),
+      color-mix(in srgb, var(--accent-palette) 4%, transparent)
+    );
+  box-shadow: none;
+  transform: none;
+}
