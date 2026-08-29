@@ -1,27 +1,32 @@
 .navigation {
   position: sticky;
   top: 0;
-  z-index: 50;
-  display: flex;
+  z-index: 1;
   width: 100%;
+  display: flex;
   justify-content: center;
-  box-sizing: border-box;
-  padding-inline: 16px;
+  padding: 0 16px;
+}
+
+.navigation-context-menu {
+  right: max(16px, calc(50% - 640px));
 }
 
 .navigation__panel {
+  overflow-x: auto;
   position: relative;
-  display: flex;
   width: 100%;
   max-width: 1280px;
   height: 56px;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  box-sizing: border-box;
+  gap: 25px;
   margin-top: 25px;
+  padding: 0 20px;
   border: 1px solid color-mix(in srgb, var(--accent-palette) 28%, transparent);
   border-radius: 14px;
-  padding-inline: 20px;
+  backdrop-filter: blur(12px);
   background:
     linear-gradient(180deg, rgba(18, 18, 18, 0.92), rgba(5, 5, 5, 0.86)),
     rgba(0, 0, 0, 0.76);
@@ -29,7 +34,14 @@
     0 0 0 1px color-mix(in srgb, var(--accent-palette) 6%, transparent) inset,
     0 0 28px color-mix(in srgb, var(--accent-palette) 12%, transparent),
     0 14px 36px rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(12px);
+}
+
+.navigation__panel {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* старый Edge/IE */
+}
+.navigation__panel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, новый Edge */
 }
 
 .navigation__panel::before {
@@ -46,13 +58,9 @@
   position: relative;
   z-index: 1;
   width: 30px;
-  height: 30px;
-  object-fit: contain;
+  min-width: 30px;
   opacity: 0.78;
   filter: drop-shadow(0 0 8px color-mix(in srgb, var(--accent-palette) 35%, transparent));
-}
-
-.navigation__icon-profile {
   cursor: pointer;
 }
 
@@ -84,6 +92,7 @@
     color 0.25s ease,
     text-shadow 0.25s ease,
     transform 0.25s ease;
+  white-space: nowrap;
 }
 
 .navigation__link:hover,

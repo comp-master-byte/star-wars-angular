@@ -16,8 +16,8 @@ export class ResetPasswordPage {
   public isSubmitted = false;
   public resetPasswordForm = new FormGroup({
     nickname: new FormControl('', [Validators.required]),
-    newPassword: new FormControl('', [Validators.required]),
-    repeatNewPassword: new FormControl('', [Validators.required, ]),
+    newPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
+    repeatNewPassword: new FormControl('', [Validators.required]),
   })
 
   get nicknameControl() {
@@ -37,8 +37,10 @@ export class ResetPasswordPage {
   }
   get newPasswordError() {
     if(this.newPasswordControl.touched || this.isSubmitted) {
-      const isRequired = this.newPasswordControl.errors?.required;
+      const isRequired = this.newPasswordControl.errors?.['required'];
+      const minLength = this.newPasswordControl.errors?.['minlength'];
       if(isRequired) return 'Заполните ваш новый пароль';
+      if(minLength) return 'Минимальное кол-во символов 8';
     }
 
     return false;

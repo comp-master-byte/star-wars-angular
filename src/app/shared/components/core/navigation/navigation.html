@@ -1,10 +1,12 @@
 <div class="navigation">
   <nav class="navigation__panel">
-    <img
-      src="/icons/lord-vader.svg"
-      class="navigation__icon"
-      alt="Дарт Вейдер"
-    />
+    <a routerLink="/">
+      <img
+        src="/icons/lord-vader.svg"
+        class="navigation__icon"
+        alt="Дарт Вейдер"
+      />
+    </a>
 
     <ul class="navigation__list">
       @for (route of routes; track route.path) {
@@ -29,12 +31,14 @@
         (click)="handleProfileClick()"
         (pointerdown)="$event.stopPropagation()"
       />
-      <app-context-menu
-        [options]="contextMenuOptions"
-        [isVisible]="isContextMenuVisible()"
-        (onMenuOptionSelect)="handleProfileMenuSelect($event)"
-        (clickOutside)="isContextMenuVisible.set(false)"
-      ></app-context-menu>
     </div>
   </nav>
+
+  <app-context-menu
+    class="navigation-context-menu"
+    [options]="contextMenuOptions"
+    [isVisible]="isContextMenuVisible()"
+    (onMenuOptionSelect)="handleProfileMenuSelect($event)"
+    (clickOutside)="isContextMenuVisible.set(false)"
+  ></app-context-menu>
 </div>
