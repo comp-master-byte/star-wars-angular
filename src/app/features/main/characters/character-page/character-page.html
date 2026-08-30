@@ -9,12 +9,16 @@
     <section class="character-page__hero">
       <div class="character-page__media">
         <div class="character-page__image-frame">
-          <img
-            class="character-page__image"
-            [src]="character.img || '/assets/characters/placeholder.jpeg'"
-            [alt]="character.name"
-          />
-          <div class="character-page__image-overlay"></div>
+          @if(character.video) {
+            <video autoplay loop controls [src]="character.video"></video>
+          } @else {
+            <img
+              class="character-page__image"
+              [src]="character.img || '/assets/characters/placeholder.jpeg'"
+              [alt]="character.name"
+            />
+            <div class="character-page__image-overlay"></div>
+          }
         </div>
 
         <div class="character-page__signal" aria-hidden="true">

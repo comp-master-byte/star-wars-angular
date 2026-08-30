@@ -11,6 +11,7 @@ export type CharacterType = {
   name: string;
   mass: string;
   img?: string;
+  video?:string;
   height: string;
   color?: string;
   eyeColor: string;

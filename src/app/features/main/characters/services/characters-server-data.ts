@@ -1,6 +1,7 @@
 export type CharactersExtraData = {
   img?: string;
   color?: string;
+  video?: string;
   designation: string;
 }
 
@@ -21,6 +22,7 @@ export const CHARACTERS_FULL_DATA_DICT: Record<string, CharactersExtraData> = {
   },
   '4': {
     img: '/assets/characters/dart-vader.webp',
+    video: '/video/vader.mp4',
     designation: 'Sith Lord',
     color: 'red'
   },
