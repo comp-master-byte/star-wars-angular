@@ -2,6 +2,16 @@
   <h1 class="h1">Профиль</h1>
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="reactive-form">
     <div>
+      <label class="ui-input__label">Никнейм</label>
+      <input
+        class="ui-input"
+        label="Никнейм"
+        placeholder="Введите никнейм"
+        formControlName="nickname"
+      />
+    </div>
+
+    <div>
       <label class="ui-input__label">Имя</label>
       <input
         type="text"
@@ -31,19 +41,9 @@
       />
     </div>
 
-    <div>
-      <label class="ui-input__label">Никнейм</label>
-      <input
-        class="ui-input"
-        label="Никнейм"
-        placeholder="Введите никнейм"
-        formControlName="nickname"
-      />
-    </div>
-
     <div class="profile-page__action-buttons">
       <button 
-        class="ui-button" 
+        class="ui-button ui-button--secondary" 
         type="button"
         (click)="toggleEditMode()"
       >

@@ -23,15 +23,23 @@
   outline: none;
   background: rgba(0, 0, 0, 0.38);
   color: #ffffff;
-  font: inherit;
   padding: 15px 16px;
   transition:
     border-color 0.25s ease,
     box-shadow 0.25s ease,
-    background 0.25s ease;
+    background 0.25s ease,
+    color 0.25s ease;
 }
 .ui-input:disabled {
   pointer-events: none;
+  cursor: not-allowed;
+  color: #8a8a8a;
+  border-color: #2e2e2e;
+  background: color-mix(in srgb, var(--accent-palette) 8%, transparent);
+  box-shadow: none;
+}
+.ui-input:disabled::placeholder {
+  color: #5c5c5c;
 }
 .ui-input__label {
   color: rgba(255, 255, 255, 0.55);
@@ -97,6 +105,24 @@
     );
   box-shadow: none;
   transform: none;
+}
+
+.ui-button--secondary {
+  border-color: color-mix(in srgb, var(--accent-palette) 28%, transparent);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.78);
+}
+.ui-button--secondary:hover:not(:disabled):not(.ui-button__disabled) {
+  border-color: color-mix(in srgb, var(--accent-palette) 48%, transparent);
+  background: color-mix(in srgb, var(--accent-palette) 10%, transparent);
+  color: #ffffff;
+}
+.ui-button--secondary:disabled,
+.ui-button--secondary.ui-button__disabled {
+  border-color: color-mix(in srgb, var(--accent-palette) 14%, transparent);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.35);
+  opacity: 0.55;
 }
 
 /* ===== FONTS ===== */
