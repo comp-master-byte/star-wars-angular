@@ -6,6 +6,14 @@
 }
 
 /* UI-KIT */
+/* ===== FORM ===== */
+.reactive-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 34px;
+}
+
 /* ===== INPUT ===== */
 .ui-input {
   width: 100%;
@@ -21,6 +29,9 @@
     border-color 0.25s ease,
     box-shadow 0.25s ease,
     background 0.25s ease;
+}
+.ui-input:disabled {
+  pointer-events: none;
 }
 .ui-input__label {
   color: rgba(255, 255, 255, 0.55);
@@ -86,4 +97,13 @@
     );
   box-shadow: none;
   transform: none;
+}
+
+/* ===== FONTS ===== */
+.h1 {
+  color: #ffffff;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 800;
+  line-height: 0.95;
+  text-shadow: 0 0 24px color-mix(in srgb, var(--accent-palette) 16%, transparent);
 }

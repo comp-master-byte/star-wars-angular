@@ -1,0 +1,11 @@
+.profile-page__wrapper {
+  max-width: 800px;
+  width: 100%;
+}
+
+.profile-page__action-buttons {
+  display: flex;
+  column-gap: 16px;
+  align-items: center;
+  margin-top: 12px;
+}

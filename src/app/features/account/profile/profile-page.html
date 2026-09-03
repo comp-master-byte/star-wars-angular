@@ -1,1 +1,62 @@
-<p>profile-page works!</p>
+<section class="profile-page__wrapper">
+  <h1 class="h1">Профиль</h1>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="reactive-form">
+    <div>
+      <label class="ui-input__label">Имя</label>
+      <input
+        type="text"
+        class="ui-input"
+        placeholder="Введите имя"
+        formControlName="firstName"
+      />
+    </div>
+
+    <div>
+      <label class="ui-input__label">Фамилия</label>
+      <input
+        class="ui-input"
+        label="Фамилия"
+        placeholder="Введите фамилию"
+        formControlName="lastName"
+      />
+    </div>
+
+    <div>
+      <label class="ui-input__label">Дата рождения</label>
+      <input
+        class="ui-input"
+        label="Дата рождения"
+        placeholder="Введите дату рождения"
+        formControlName="date"
+      />
+    </div>
+
+    <div>
+      <label class="ui-input__label">Никнейм</label>
+      <input
+        class="ui-input"
+        label="Никнейм"
+        placeholder="Введите никнейм"
+        formControlName="nickname"
+      />
+    </div>
+
+    <div class="profile-page__action-buttons">
+      <button 
+        class="ui-button" 
+        type="button"
+        (click)="toggleEditMode()"
+      >
+        {{ userForm.enabled ? 'Закончить редактирование' : 'Редактировать'}}
+      </button>
+      @if(userForm.enabled) {
+        <button 
+          class="ui-button" 
+          type="submit"
+        >
+          Отправить
+        </button>
+      }
+    </div>
+  </form>
+</section>
